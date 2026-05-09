@@ -1,236 +1,99 @@
 const Schedule = () => {
+  const days = [
+    { label: "Day 01", date: "May 13, 2026", active: true },
+    { label: "Day 02", date: "May 14, 2026", active: false },
+    { label: "Day 03", date: "May 15, 2026", active: false },
+  ];
+
+  const items = [
+    { time: "8:00 – 10:00 AM", title: "Registration & Welcome", desc: "Our team will be available to assist you and ensure you're ready for the days ahead." },
+    { time: "10:00 – 11:00 AM", title: "Opening Ceremony" },
+    { time: "12:00 – 2:00 PM", title: "Networking Lunch" },
+    { time: "2:00 – 2:30 PM", title: "Keynote: CEO of Trial" },
+    { time: "3:00 – 4:00 PM", title: "Talk with Tech Lead" },
+    { time: "4:00 – 6:00 PM", title: "Q&A, Tea Break & Networking" },
+    { time: "6:00 – 8:00 PM", title: "Closing Remarks" },
+  ];
+
   return (
-    <section className="bg-[#F5F5F5] py-28 px-6">
+    <section className="bg-[#111111] py-28 px-6">
 
       {/* MAIN CONTAINER */}
-      <div className="max-w-7xl mx-auto bg-[#ECECEC] rounded-[40px] p-12">
+      <div className="max-w-7xl mx-auto">
 
-        <div className="grid lg:grid-cols-2 gap-20">
+        {/* SECTION LABEL */}
+        <div className="flex items-center gap-5 mb-10">
+          <div className="h-[2px] w-12 bg-yellow-400"></div>
+          <p className="text-yellow-400 uppercase tracking-[5px] text-sm font-semibold">
+            Schedule & Agenda
+          </p>
+        </div>
 
-          {/* LEFT SIDE */}
+        <div className="grid lg:grid-cols-[1fr_2fr] gap-20">
+
+          {/* LEFT */}
           <div>
-
-            {/* SMALL TITLE */}
-            <p className="text-[#F4B183] uppercase tracking-[4px] text-lg">
-              Schedule
-            </p>
-
-            {/* MAIN TITLE */}
-            <h1 className="text-6xl font-bold text-black mt-8 leading-tight">
-              SCHEDULE
+            <h1 className="text-6xl font-black text-white leading-[1.05]">
+              Three
               <br />
-              AND AGENDA
+              Days of
+              <br />
+              Innovation
             </h1>
 
-            {/* DESCRIPTION */}
-            <p className="text-gray-700 text-3xl mt-10 leading-relaxed">
-              Löremipsumkontravis.
-              <br />
-              Hovis.Proläserinat.
-              <br />
-              Monolaviselektroosmos.
-              <br />
-              Kasetrer.
+            <p className="text-gray-400 text-lg mt-10 leading-relaxed max-w-xs">
+              Three packed days of talks, workshops, pitch competitions,
+              and networking with Africa's brightest minds.
             </p>
 
-            {/* LEARN MORE */}
-            <button className="mt-14 flex items-center gap-4 text-[#F4B183] text-2xl font-semibold hover:gap-6 transition-all">
-
-              Learn More →
-
+            <button className="mt-10 text-yellow-400 font-semibold flex items-center gap-2 hover:gap-4 transition-all text-base">
+              Download full agenda →
             </button>
 
-            {/* FLOATING CARDS */}
-            <div className="relative mt-20">
-
-              {/* CARD 1 */}
-              <div className="bg-white rounded-3xl p-4 shadow-2xl w-64">
-
-                <h2 className="text-2xl font-bold text-black mb-4">
-                  Events
-                </h2>
-
+            {/* FLOATING IMAGE STACK */}
+            <div className="relative mt-16 h-56">
+              <div className="absolute left-0 top-0 bg-[#1C1C1C] border border-white/10 rounded-2xl overflow-hidden w-48 shadow-2xl">
                 <img
-                  src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?q=80&w=1200&auto=format&fit=crop"
-                  className="rounded-2xl h-36 w-full object-cover"
+                  src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?q=80&w=600&auto=format&fit=crop"
+                  className="h-32 w-full object-cover"
                 />
-
+                <p className="text-white text-sm font-bold px-4 py-3">Main Stage</p>
               </div>
-
-              {/* CARD 2 */}
-              <div className="absolute left-28 top-24 bg-white rounded-3xl p-4 shadow-2xl w-64">
-
-                <h2 className="text-2xl font-bold text-black mb-4">
-                  DBS
-                </h2>
-
+              <div className="absolute left-36 top-16 bg-[#1C1C1C] border border-white/10 rounded-2xl overflow-hidden w-48 shadow-2xl">
                 <img
-                  src="https://images.unsplash.com/photo-1511578314322-379afb476865?q=80&w=1200&auto=format&fit=crop"
-                  className="rounded-2xl h-36 w-full object-cover"
+                  src="https://images.unsplash.com/photo-1511578314322-379afb476865?q=80&w=600&auto=format&fit=crop"
+                  className="h-32 w-full object-cover"
                 />
-
+                <p className="text-white text-sm font-bold px-4 py-3">Demo Zone</p>
               </div>
-
             </div>
-
           </div>
 
-          {/* RIGHT SIDE */}
+          {/* RIGHT */}
           <div>
 
-            {/* DAYS */}
-            <div className="flex justify-between">
-
-              {/* DAY 1 */}
-              <div>
-
-                <h2 className="text-4xl font-bold text-black">
-                  Day 01
-                </h2>
-
-                <p className="text-gray-500 text-3xl mt-3">
-                  May 13,2026
-                </p>
-
-              </div>
-
-              {/* DAY 2 */}
-              <div>
-
-                <h2 className="text-4xl font-bold text-gray-500">
-                  Day 02
-                </h2>
-
-                <p className="text-gray-400 text-3xl mt-3">
-                  May 14,2026
-                </p>
-
-              </div>
-
-              {/* DAY 3 */}
-              <div>
-
-                <h2 className="text-4xl font-bold text-gray-500">
-                  Day 03
-                </h2>
-
-                <p className="text-gray-400 text-3xl mt-3">
-                  May 15,2026
-                </p>
-
-              </div>
-
-            </div>
-
-            {/* LINE */}
-            <div className="relative mt-10 h-[2px] bg-gray-400">
-
-              <div className="absolute left-0 top-0 h-[4px] w-40 bg-yellow-400 rounded-full"></div>
-
+            {/* DAY TABS */}
+            <div className="flex gap-10 border-b border-white/10 pb-4">
+              {days.map((d) => (
+                <button key={d.label} className={`text-left transition ${d.active ? "" : "opacity-40"}`}>
+                  <p className={`text-xl font-black ${d.active ? "text-white" : "text-gray-400"}`}>{d.label}</p>
+                  <p className={`text-sm mt-1 ${d.active ? "text-yellow-400" : "text-gray-500"}`}>{d.date}</p>
+                  {d.active && <div className="mt-3 h-[3px] w-full bg-yellow-400 rounded-full"></div>}
+                </button>
+              ))}
             </div>
 
             {/* TIMELINE */}
-            <div className="mt-16 space-y-10">
-
-              {/* ITEM */}
-              <div className="grid grid-cols-[180px_1fr] gap-10">
-
-                <h2 className="text-gray-500 text-4xl font-bold">
-                  8AM-10AM
-                </h2>
-
-                <div>
-
-                  <h1 className="text-4xl font-bold text-black">
-                    Registration
-                  </h1>
-
-                  <p className="text-gray-500 mt-4 leading-relaxed">
-                    Our team will be available to assist you with any questions and ensure you are ready for the exciting days ahead.
-                  </p>
-
+            <div className="mt-10 space-y-0">
+              {items.map((item, i) => (
+                <div key={i} className="grid grid-cols-[160px_1fr] gap-8 py-7 border-b border-white/5 group">
+                  <p className="text-gray-500 text-sm font-medium pt-1">{item.time}</p>
+                  <div>
+                    <h2 className="text-white text-xl font-bold group-hover:text-yellow-400 transition">{item.title}</h2>
+                    {item.desc && <p className="text-gray-500 text-sm mt-2 leading-relaxed">{item.desc}</p>}
+                  </div>
                 </div>
-
-              </div>
-
-              {/* ITEM */}
-              <div className="grid grid-cols-[180px_1fr] gap-10">
-
-                <h2 className="text-gray-500 text-4xl font-bold">
-                  10AM-11AM
-                </h2>
-
-                <h1 className="text-4xl font-bold text-black">
-                  Welcoming the Guest
-                </h1>
-
-              </div>
-
-              {/* ITEM */}
-              <div className="grid grid-cols-[180px_1fr] gap-10">
-
-                <h2 className="text-gray-500 text-4xl font-bold">
-                  12PM-14PM
-                </h2>
-
-                <h1 className="text-4xl font-bold text-black">
-                  Networking and Lunch
-                </h1>
-
-              </div>
-
-              {/* ITEM */}
-              <div className="grid grid-cols-[180px_1fr] gap-10">
-
-                <h2 className="text-gray-500 text-4xl font-bold">
-                  14PM-14:30PM
-                </h2>
-
-                <h1 className="text-4xl font-bold text-black">
-                  Talk from CEO of Trial
-                </h1>
-
-              </div>
-
-              {/* ITEM */}
-              <div className="grid grid-cols-[180px_1fr] gap-10">
-
-                <h2 className="text-gray-500 text-4xl font-bold">
-                  15PM-16PM
-                </h2>
-
-                <h1 className="text-4xl font-bold text-black">
-                  Talk with Tech Lead
-                </h1>
-
-              </div>
-
-              {/* ITEM */}
-              <div className="grid grid-cols-[180px_1fr] gap-10">
-
-                <h2 className="text-gray-500 text-4xl font-bold">
-                  16PM-18PM
-                </h2>
-
-                <h1 className="text-4xl font-bold text-black">
-                  QAs, Tea break and Networking
-                </h1>
-
-              </div>
-
-              {/* ITEM */}
-              <div className="grid grid-cols-[180px_1fr] gap-10">
-
-                <h2 className="text-gray-500 text-4xl font-bold">
-                  18PM-20PM
-                </h2>
-
-                <h1 className="text-4xl font-bold text-black">
-                  Closing and Remarks
-                </h1>
-
-              </div>
-
+              ))}
             </div>
 
           </div>
