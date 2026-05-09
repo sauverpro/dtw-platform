@@ -4,9 +4,7 @@ const eventImage =
 const crowdImage =
   "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?q=80&w=1200&auto=format&fit=crop";
 
-const investorImage =
-  "https://images.unsplash.com/photo-1540317580384-e5d43867caa6?q=80&w=1200&auto=format&fit=crop";
-
+const investorImage ="https://res.cloudinary.com/dx90htl9t/image/upload/v1778341242/55044140974_3f47551b38_c_ub6clo.jpg";
 const womenTechImage =
   "https://images.unsplash.com/photo-1517457373958-b7bdd4587205?q=80&w=1200&auto=format&fit=crop";
 

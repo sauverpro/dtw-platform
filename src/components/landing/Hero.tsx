@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
 
 const Hero = () => {
@@ -10,6 +10,7 @@ const Hero = () => {
   });
 
   const [currentSlide, setCurrentSlide] = useState(0);
+  const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -68,8 +69,14 @@ const Hero = () => {
     }
   ];
 
-  const formatTime = (num) => String(num).padStart(2, '0');
+  const formatTime = (num: number) => String(num).padStart(2, '0');
   const heroVideo = "https://res.cloudinary.com/dx90htl9t/video/upload/v1778337572/0509_pgmad3.mov";
+
+  const handleVideoEnded = () => {
+    if (!videoRef.current) return;
+    videoRef.current.currentTime = 0;
+    void videoRef.current.play();
+  };
 
   const nextSlide = () => {
     setCurrentSlide((prev) => (prev + 1) % events.length);
@@ -84,10 +91,12 @@ const Hero = () => {
       
       {/* VIDEO BACKGROUND */}
       <video
+        ref={videoRef}
         autoPlay
         loop
         muted
         playsInline
+        onEnded={handleVideoEnded}
         className="absolute inset-0 w-full h-full object-cover"
       >
         <source src={heroVideo} type="video/mp4" />
