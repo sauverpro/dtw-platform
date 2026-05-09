@@ -1,9 +1,9 @@
-import './App.css'
+import { Index } from './pages/Index'
 function App() {
 
   return (
     <>
-    <h1>Hello World</h1>
+      <Index />
     </>
   )
 }
