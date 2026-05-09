@@ -1,124 +1,101 @@
 import { useState } from "react";
 
+const faqs = [
+  {
+    question: "What is DTW?",
+    answer:
+      "DTW is Rwanda's leading digital transformation and technology conference bringing together innovators, startups, investors and leaders from across the continent.",
+  },
+  {
+    question: "Will food & drinks be available?",
+    answer:
+      "Yes. A variety of food and beverage options will be available throughout the event, including a dedicated networking lunch on each day.",
+  },
+  {
+    question: "Why the focus on technology?",
+    answer:
+      "Technology drives innovation, transformation and economic growth — which is why DTW focuses on the future of tech to position Rwanda as Africa's digital hub.",
+  },
+  {
+    question: "How do I reserve a seat?",
+    answer:
+      "You can reserve your seat by registering online through the event registration platform. Early bird tickets sell out fast.",
+  },
+];
+
 const Faq = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
-  const faqs = [
-    {
-      question: "What is DTW?",
-      answer:
-        "DTW is Rwanda’s leading digital transformation and technology conference bringing together innovators, startups, investors and leaders.",
-    },
-    {
-      question: "Do we eat what we wants?",
-      answer:
-        "Yes. Different food and beverage options will be available during the event experience.",
-    },
-    {
-      question: "Why Do you always have tech?",
-      answer:
-        "Technology drives innovation, transformation and economic growth which is why DTW focuses on the future of tech.",
-    },
-    {
-      question: "How do i reserve a sit?",
-      answer:
-        "You can reserve your seat by registering online through the event registration platform.",
-    },
-  ];
-
   return (
-    <section className="bg-black py-28 px-6">
+    <section className="bg-[#0E0E0E] py-28 px-6">
 
       {/* MAIN CONTAINER */}
       <div className="max-w-7xl mx-auto">
 
         {/* FAQ AREA */}
-        <div className="grid lg:grid-cols-2 gap-16">
+        <div className="grid lg:grid-cols-[1fr_1.4fr] gap-16">
 
-          {/* LEFT SIDE */}
+          {/* LEFT */}
           <div>
+            <div className="flex items-center gap-5 mb-8">
+              <div className="h-[2px] w-12 bg-yellow-400"></div>
+              <p className="text-yellow-400 uppercase tracking-[5px] text-sm font-semibold">FAQs</p>
+            </div>
 
-            {/* SMALL TITLE */}
-            <p className="text-gray-400 text-2xl">
-              FAQS
-            </p>
-
-            {/* MAIN TITLE */}
-            <h1 className="text-white text-5xl font-bold mt-12 leading-tight">
-              Frequently Asked Question
+            <h1 className="text-white text-5xl font-black leading-tight">
+              Frequently
+              <br />
+              Asked
+              <br />
+              Questions
             </h1>
 
-            {/* QUESTION LINK */}
-            <button className="flex items-center gap-4 text-[#F4B400] text-2xl mt-14 hover:gap-6 transition-all">
+            <p className="text-gray-500 text-base mt-8 leading-relaxed max-w-xs">
+              Still have questions? We're happy to help you before the event.
+            </p>
 
-              I have a question →
-
+            <button className="flex items-center gap-2 text-yellow-400 text-base font-semibold mt-8 hover:gap-4 transition-all">
+              Ask a question →
             </button>
-
           </div>
 
-          {/* RIGHT SIDE */}
-          <div className="space-y-8">
-
+          {/* RIGHT — ACCORDION */}
+          <div className="space-y-3">
             {faqs.map((faq, index) => (
               <div
                 key={index}
-                className="bg-white rounded-2xl overflow-hidden"
+                className={`rounded-2xl overflow-hidden border transition duration-300 ${
+                  openIndex === index
+                    ? "border-yellow-400/40 bg-[#1A1A1A]"
+                    : "border-white/5 bg-[#161616]"
+                }`}
               >
-
-                {/* QUESTION */}
                 <button
-                  onClick={() =>
-                    setOpenIndex(openIndex === index ? null : index)
-                  }
-                  className="w-full flex items-center justify-between px-8 py-7 text-left"
+                  onClick={() => setOpenIndex(openIndex === index ? null : index)}
+                  className="w-full flex items-center justify-between px-7 py-6 text-left"
                 >
-
-                  <h2 className="text-2xl font-bold text-black">
+                  <h2 className={`text-base font-bold transition ${openIndex === index ? "text-white" : "text-gray-300"}`}>
                     {faq.question}
                   </h2>
-
-                  <span className="text-4xl font-light">
+                  <span className={`text-2xl font-light ml-6 transition ${openIndex === index ? "text-yellow-400" : "text-gray-600"}`}>
                     {openIndex === index ? "−" : "+"}
                   </span>
-
                 </button>
 
-                {/* ANSWER */}
                 {openIndex === index && (
-                  <div className="px-8 pb-8">
-
-                    <p className="text-gray-600 text-lg leading-relaxed">
+                  <div className="px-7 pb-6">
+                    <p className="text-gray-400 text-sm leading-relaxed">
                       {faq.answer}
                     </p>
-
                   </div>
                 )}
-
               </div>
             ))}
-
           </div>
 
         </div>
 
-        {/* CTA SECTION */}
-        <div className="bg-[#F3F3F3] rounded-[40px] mt-24 p-12 md:p-16 flex flex-col md:flex-row items-center justify-between gap-10">
-
-          {/* TEXT */}
-          <h1 className="text-5xl font-bold text-black">
-            Ready to join us?
-          </h1>
-
-          {/* BUTTON */}
-          <button className="bg-yellow-400 text-black px-14 py-6 rounded-2xl text-3xl font-bold hover:scale-105 transition duration-500 shadow-xl">
-
-            Contact Us
-
-          </button>
-
-        </div>
-
+       
       </div>
 
     </section>
