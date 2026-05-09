@@ -17,19 +17,19 @@ const Navbar = () => {
     <nav
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${
         scrolled
-          ? "bg-white/90 backdrop-blur-md border-b border-gray-100 shadow-sm py-4"
-          : "bg-transparent py-6"
+          ? "bg-white/90 backdrop-blur-md border-b border-gray-100 shadow-sm py-3 md:py-4"
+          : "bg-transparent py-5 md:py-6"
       }`}
     >
-      <div className="max-w-7xl mx-auto flex items-center justify-between px-8">
+      <div className="max-w-7xl mx-auto flex items-center justify-between px-4 md:px-8">
 
         {/* LOGO */}
-        <h1 className={`font-black text-2xl tracking-tight transition-colors duration-300 ${scrolled ? "text-black" : "text-white"}`}>
+        <h1 className={`font-black text-xl md:text-2xl tracking-tight transition-colors duration-300 ${scrolled ? "text-black" : "text-white"}`}>
           DTW<span className="text-yellow-400">2026</span>
         </h1>
 
         {/* DESKTOP MENU */}
-        <ul className="hidden md:flex items-center gap-8">
+        <ul className="hidden md:flex items-center gap-6 lg:gap-8">
           {links.map((link) => (
             <li
               key={link}
@@ -42,7 +42,7 @@ const Navbar = () => {
           ))}
         </ul>
 
-        {/* RIGHT SIDE */}
+        {/* RIGHT SIDE — DESKTOP */}
         <div className="hidden md:flex items-center gap-4">
           <button
             className={`text-sm font-medium transition-colors duration-200 ${
@@ -56,31 +56,36 @@ const Navbar = () => {
           </button>
         </div>
 
-        {/* MOBILE HAMBURGER */}
-        <button
-          onClick={() => setMobileOpen(!mobileOpen)}
-          className={`md:hidden transition-colors ${scrolled ? "text-black" : "text-white"}`}
-        >
-          {mobileOpen ? <X size={22} /> : <Menu size={22} />}
-        </button>
+        {/* MOBILE: Get Tickets + Hamburger */}
+        <div className="flex items-center gap-3 md:hidden">
+          <button className="bg-yellow-400 text-black px-4 py-2 rounded-lg text-xs font-bold">
+            Tickets
+          </button>
+          <button
+            onClick={() => setMobileOpen(!mobileOpen)}
+            className={`transition-colors ${scrolled ? "text-black" : "text-white"}`}
+          >
+            {mobileOpen ? <X size={22} /> : <Menu size={22} />}
+          </button>
+        </div>
 
       </div>
 
-      {/* MOBILE MENU */}
+      {/* MOBILE MENU DROPDOWN */}
       {mobileOpen && (
-        <div className="md:hidden bg-white border-t border-gray-100 px-8 py-6 space-y-4">
+        <div className="md:hidden bg-white border-t border-gray-100 px-4 py-5 space-y-1">
           {links.map((link) => (
             <p
               key={link}
-              className="text-gray-700 text-sm font-medium cursor-pointer hover:text-yellow-500 transition"
+              className="text-gray-700 text-sm font-medium cursor-pointer hover:text-yellow-500 transition py-2.5 border-b border-gray-50 last:border-0"
               onClick={() => setMobileOpen(false)}
             >
               {link}
             </p>
           ))}
-          <div className="pt-4 border-t border-gray-100 flex flex-col gap-3">
-            <button className="text-sm font-medium text-gray-600 text-left">Sign in</button>
-            <button className="bg-yellow-400 text-black px-5 py-3 rounded-xl text-sm font-bold">
+          <div className="pt-4 flex flex-col gap-3">
+            <button className="text-sm font-medium text-gray-500 text-left py-1">Sign in</button>
+            <button className="bg-yellow-400 text-black px-5 py-3 rounded-xl text-sm font-bold w-full">
               Get Tickets →
             </button>
           </div>
