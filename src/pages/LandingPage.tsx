@@ -3,6 +3,7 @@ import UpcomingEvents from "../components/landing/Event"
 import Footer from "../components/landing/Footer"
 import AboutEvent from "../components/landing/AboutEvent"
 import TicketsPartners from "../components/landing/TicketsPartners"
+import Schedule from "../components/landing/Schedule"
 const LandingPage = () => {
   return (
     <div>
@@ -11,6 +12,7 @@ const LandingPage = () => {
           <AboutEvent />
 
       <TicketsPartners />
+      <Schedule />
         <Footer />
     </div>
   )
