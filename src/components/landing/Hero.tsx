@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 
+
 const Hero = () => {
   const [timeLeft, setTimeLeft] = useState({
     days: 26,
@@ -14,7 +15,7 @@ const Hero = () => {
     const timer = setInterval(() => {
       setTimeLeft(prev => {
         let { days, hours, minutes, seconds } = prev;
-
+        
         if (seconds > 0) {
           seconds--;
         } else if (minutes > 0) {
@@ -30,12 +31,20 @@ const Hero = () => {
           minutes = 59;
           seconds = 59;
         }
-
+        
         return { days, hours, minutes, seconds };
       });
     }, 1000);
 
     return () => clearInterval(timer);
+  }, []);
+
+  useEffect(() => {
+    const slideTimer = setInterval(() => {
+      setCurrentSlide(prev => (prev + 1) % events.length);
+    }, 5000);
+
+    return () => clearInterval(slideTimer);
   }, []);
 
   const events = [
@@ -59,69 +68,30 @@ const Hero = () => {
     }
   ];
 
-  useEffect(() => {
-    const slideTimer = setInterval(() => {
-      setCurrentSlide(prev => (prev + 1) % events.length);
-    }, 5000);
-
-    return () => clearInterval(slideTimer);
-  }, []);
-
-  // ─── PASTE YOUR YOUTUBE VIDEO ID HERE ───────────────────────────────────────
-  // It's the part after "v=" in the URL, e.g. youtube.com/watch?v=XXXXXXXXXXX
-  const youtubeVideoId = "YOUR_VIDEO_ID_HERE";
-  // ────────────────────────────────────────────────────────────────────────────
-
-  // YouTube embed params explained:
-  // autoplay=1        → starts playing immediately
-  // mute=1            → required for autoplay to work in browsers
-  // loop=1            → loops forever
-  // playlist=ID       → loop requires this to be the same video ID
-  // controls=0        → hides the YouTube player controls
-  // showinfo=0        → hides video title bar
-  // rel=0             → disables related videos at end
-  // modestbranding=1  → reduces YouTube logo visibility
-  // iv_load_policy=3  → hides video annotations
-  // disablekb=1       → disables keyboard shortcuts on the player
-  // enablejsapi=1     → allows JS control if needed later
-  const youtubeEmbedUrl =
-    `https://www.youtube.com/embed/${youtubeVideoId}` +
-    `?autoplay=1&mute=1&loop=1&playlist=${youtubeVideoId}` +
-    `&controls=0&showinfo=0&rel=0&modestbranding=1` +
-    `&iv_load_policy=3&disablekb=1&enablejsapi=1`;
-
   const formatTime = (num) => String(num).padStart(2, '0');
+  const heroVideo = "https://res.cloudinary.com/dx90htl9t/video/upload/v1778337572/0509_pgmad3.mov";
 
-  const nextSlide = () => setCurrentSlide((prev) => (prev + 1) % events.length);
-  const prevSlide = () => setCurrentSlide((prev) => (prev - 1 + events.length) % events.length);
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev + 1) % events.length);
+  };
+
+  const prevSlide = () => {
+    setCurrentSlide((prev) => (prev - 1 + events.length) % events.length);
+  };
 
   return (
     <section className="relative min-h-screen overflow-hidden bg-black">
-
-      {/* ── YOUTUBE VIDEO BACKGROUND ──────────────────────────────────────────
-          The iframe is scaled to 200% width/height and offset by -50% so it
-          always fills the section regardless of aspect ratio or screen size.
-          pointer-events: none prevents any clicks from reaching the YouTube
-          player UI underneath (which could pause/open YouTube on click).
-      ────────────────────────────────────────────────────────────────────── */}
-      <div className="absolute inset-0 overflow-hidden">
-        <iframe
-          src={youtubeEmbedUrl}
-          title="Hero background video"
-          allow="autoplay; encrypted-media"
-          allowFullScreen={false}
-          style={{
-            position: 'absolute',
-            top: '50%',
-            left: '50%',
-            width: '200%',
-            height: '200%',
-            transform: 'translate(-50%, -50%)',
-            border: 'none',
-            pointerEvents: 'none',   // blocks clicks from reaching YouTube UI
-          }}
-        />
-      </div>
+      
+      {/* VIDEO BACKGROUND */}
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="absolute inset-0 w-full h-full object-cover"
+      >
+        <source src={heroVideo} type="video/mp4" />
+      </video>
 
       {/* OVERLAY */}
       <div className="absolute inset-0 bg-black/50"></div>
@@ -184,7 +154,9 @@ const Hero = () => {
 
               {/* CARD SLIDER */}
               <div className="relative">
+                {/* SLIDER CONTAINER */}
                 <div className="relative rounded-xl sm:rounded-2xl overflow-hidden group" style={{ aspectRatio: '16/9' }}>
+                  {/* SLIDES */}
                   <div className="relative w-full h-full">
                     {events.map((event, idx) => (
                       <div
@@ -193,12 +165,16 @@ const Hero = () => {
                           idx === currentSlide ? 'opacity-100' : 'opacity-0'
                         }`}
                       >
+                        {/* IMAGE */}
                         <img
                           src={event.image}
                           alt={event.title}
                           className="w-full h-full object-cover"
                         />
+                        {/* GRADIENT OVERLAY */}
                         <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent"></div>
+
+                        {/* CONTENT */}
                         <div className="absolute inset-0 flex flex-col justify-end p-4 sm:p-6 md:p-8">
                           <h3 className="text-2xl sm:text-3xl md:text-4xl font-black text-white mb-1 sm:mb-2">{event.title}</h3>
                           <p className="text-white/80 text-xs sm:text-sm md:text-base">{event.subtitle}</p>
@@ -207,6 +183,7 @@ const Hero = () => {
                     ))}
                   </div>
 
+                  {/* PREV BUTTON */}
                   <button
                     onClick={prevSlide}
                     className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 z-20 w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 rounded-full bg-white/20 hover:bg-white/30 flex items-center justify-center transition-all opacity-0 group-hover:opacity-100"
@@ -214,6 +191,7 @@ const Hero = () => {
                     <span className="text-white text-lg sm:text-xl">←</span>
                   </button>
 
+                  {/* NEXT BUTTON */}
                   <button
                     onClick={nextSlide}
                     className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 z-20 w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 rounded-full bg-white/20 hover:bg-white/30 flex items-center justify-center transition-all opacity-0 group-hover:opacity-100"
@@ -222,6 +200,7 @@ const Hero = () => {
                   </button>
                 </div>
 
+                {/* SLIDE INDICATORS */}
                 <div className="flex justify-center gap-2 sm:gap-3 mt-3 sm:mt-4 md:mt-6">
                   {events.map((_, idx) => (
                     <button
@@ -238,14 +217,21 @@ const Hero = () => {
               </div>
 
             </div>
+
           </div>
         </div>
       </div>
 
       <style>{`
         @keyframes fadeInUp {
-          from { opacity: 0; transform: translateY(20px); }
-          to { opacity: 1; transform: translateY(0); }
+          from {
+            opacity: 0;
+            transform: translateY(20px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
         }
       `}</style>
     </section>
