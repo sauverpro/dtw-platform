@@ -1,148 +1,88 @@
+import { Users, LayoutList, Mic2, Globe2 } from "lucide-react";
+
 const AboutEvent = () => {
   return (
-    <section className="bg-[#F5F5F5] py-28 px-6">
+    <section className="bg-white py-28 px-6">
 
       {/* MAIN CONTAINER */}
-      <div className="max-w-6xl mx-auto text-center">
+      <div className="max-w-6xl mx-auto">
 
-        {/* TOP TITLE */}
-        <div className="flex items-center justify-center gap-6">
-
-          <div className="w-16 h-1 bg-yellow-400 rounded-full"></div>
-
-          <h2 className="text-4xl font-bold text-[#111111]">
+        {/* TOP LABEL */}
+        <div className="flex items-center gap-5 mb-6">
+          <div className="h-[2px] w-12 bg-yellow-400"></div>
+          <p className="text-yellow-500 uppercase tracking-[5px] text-sm font-semibold">
             About the Event
-          </h2>
+          </p>
+        </div>
 
-          <div className="w-16 h-1 bg-yellow-400 rounded-full"></div>
+        {/* HEADING + DESCRIPTION side by side */}
+        <div className="grid lg:grid-cols-2 gap-16 items-end">
+
+          <h1 className="text-6xl font-black text-black leading-[1.05]">
+            Digital
+            <br />
+            Transformation
+            <br />
+            Week 2026
+          </h1>
+
+          <div>
+            <p className="text-gray-500 text-lg leading-relaxed">
+              Rwanda's most impactful technology event — convening government leaders,
+              tech innovators, investors, and development partners to accelerate Rwanda's
+              digital transformation agenda. Organized by the ICT Chamber under the
+              Rwanda Private Sector Federation, in partnership with MINICT and RISA.
+            </p>
+            <button className="mt-8 bg-yellow-400 text-black font-bold px-10 py-4 rounded-xl hover:bg-yellow-300 transition duration-300 text-base">
+              Become a Partner
+            </button>
+          </div>
 
         </div>
 
-        {/* MAIN TITLE */}
-        <h1 className="text-6xl font-bold text-black mt-10">
-          Digital Transformation Week 2026
-        </h1>
+        {/* DIVIDER */}
+        <div className="border-t border-gray-100 mt-20"></div>
 
-        {/* DESCRIPTION */}
-        <p className="text-gray-600 mt-8 max-w-4xl mx-auto leading-relaxed text-lg">
-          Digital Transformation Week (DTW) 2026 is Rwanda's most impactful technology event,
-          convening government leaders, tech innovators, investors, and development partners
-          to accelerate Rwanda's digital transformation agenda. Organized by the ICT Chamber
-          under the Rwanda Private Sector Federation, in partnership with MINICT and RISA,
-          DTW2026 will showcase Rwanda's growing position as a continental technology hub.
-        </p>
-
-        {/* CARDS */}
-        <div className="grid md:grid-cols-2 gap-10 mt-20">
+        {/* STATS CARDS */}
+        <div className="grid md:grid-cols-4 gap-6 mt-16">
 
           {/* CARD 1 */}
-          <div className="bg-white rounded-3xl p-10 shadow-xl hover:-translate-y-2 transition duration-500">
-
-            <div className="flex items-center gap-6">
-
-              <div className="text-5xl">
-                👥
-              </div>
-
-              <div className="text-left">
-
-                <h2 className="text-3xl font-bold text-black">
-                  500+ Attendees
-                </h2>
-
-                <p className="text-gray-500 mt-2">
-                  Industry leaders and innovators
-                </p>
-
-              </div>
-
+          <div className="group border border-gray-100 rounded-2xl p-8 hover:border-yellow-400 hover:shadow-lg transition duration-400">
+            <div className="w-10 h-10 bg-yellow-50 rounded-xl flex items-center justify-center mb-5">
+              <Users className="text-yellow-500" size={20} />
             </div>
-
+            <h2 className="text-4xl font-black text-black">500+</h2>
+            <p className="text-gray-400 text-sm mt-2 leading-snug">Industry leaders & innovators</p>
           </div>
 
           {/* CARD 2 */}
-          <div className="bg-white rounded-3xl p-10 shadow-xl hover:-translate-y-2 transition duration-500">
-
-            <div className="flex items-center gap-6">
-
-              <div className="text-5xl">
-                📋
-              </div>
-
-              <div className="text-left">
-
-                <h2 className="text-3xl font-bold text-black">
-                  50+ Sessions
-                </h2>
-
-                <p className="text-gray-500 mt-2">
-                  Workshops, talks, and panels
-                </p>
-
-              </div>
-
+          <div className="group border border-gray-100 rounded-2xl p-8 hover:border-yellow-400 hover:shadow-lg transition duration-400">
+            <div className="w-10 h-10 bg-yellow-50 rounded-xl flex items-center justify-center mb-5">
+              <LayoutList className="text-yellow-500" size={20} />
             </div>
-
+            <h2 className="text-4xl font-black text-black">50+</h2>
+            <p className="text-gray-400 text-sm mt-2 leading-snug">Workshops, talks & panels</p>
           </div>
 
           {/* CARD 3 */}
-          <div className="bg-white rounded-3xl p-10 shadow-xl hover:-translate-y-2 transition duration-500">
-
-            <div className="flex items-center gap-6">
-
-              <div className="text-5xl">
-                🎤
-              </div>
-
-              <div className="text-left">
-
-                <h2 className="text-3xl font-bold text-black">
-                  Startup Pitch
-                </h2>
-
-                <p className="text-gray-500 mt-2">
-                  Compete for $50K in prizes
-                </p>
-
-              </div>
-
+          <div className="group border border-gray-100 rounded-2xl p-8 hover:border-yellow-400 hover:shadow-lg transition duration-400">
+            <div className="w-10 h-10 bg-yellow-50 rounded-xl flex items-center justify-center mb-5">
+              <Mic2 className="text-yellow-500" size={20} />
             </div>
-
+            <h2 className="text-4xl font-black text-black">$50K</h2>
+            <p className="text-gray-400 text-sm mt-2 leading-snug">Startup pitch prize pool</p>
           </div>
 
           {/* CARD 4 */}
-          <div className="bg-white rounded-3xl p-10 shadow-xl hover:-translate-y-2 transition duration-500">
-
-            <div className="flex items-center gap-6">
-
-              <div className="text-5xl">
-                🌍
-              </div>
-
-              <div className="text-left">
-
-                <h2 className="text-3xl font-bold text-black">
-                  Global Speakers
-                </h2>
-
-                <p className="text-gray-500 mt-2">
-                  Experts from 20+ countries
-                </p>
-
-              </div>
-
+          <div className="group border border-gray-100 rounded-2xl p-8 hover:border-yellow-400 hover:shadow-lg transition duration-400">
+            <div className="w-10 h-10 bg-yellow-50 rounded-xl flex items-center justify-center mb-5">
+              <Globe2 className="text-yellow-500" size={20} />
             </div>
-
+            <h2 className="text-4xl font-black text-black">20+</h2>
+            <p className="text-gray-400 text-sm mt-2 leading-snug">Countries represented</p>
           </div>
 
         </div>
-
-        {/* BUTTON */}
-        <button className="mt-20 bg-yellow-400 text-black text-2xl font-bold px-14 py-6 rounded-3xl shadow-xl hover:scale-105 transition duration-500">
-
-          Become a Partner
-
-        </button>
 
       </div>
 
