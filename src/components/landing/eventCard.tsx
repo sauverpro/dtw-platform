@@ -55,7 +55,6 @@ function EventCard({ title, image, date, location, floor, slotsLeft }: EventCard
         </p>
         <h2
           className="text-white text-2xl leading-none tracking-wide"
-          style={{ fontFamily: "'Bebas Neue', sans-serif" }}
         >
           {title}
         </h2>
@@ -128,7 +127,7 @@ const UpcomingEvents = () => {
 
         <h1
           className="text-white leading-[.95] mt-3"
-          style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "clamp(48px, 7vw, 80px)" }}
+          style={{ fontSize: "clamp(48px, 7vw, 80px)" }}
         >
           Don't Miss<br />
           What's <span className="text-yellow-400">Next</span>
@@ -156,7 +155,7 @@ const UpcomingEvents = () => {
             </p>
             <h1
               className="text-white leading-[.95] mt-3"
-              style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "clamp(40px, 6vw, 72px)" }}
+              style={{ fontSize: "clamp(40px, 6vw, 72px)" }}
             >
               DTWS <span className="text-yellow-400">2025</span>
             </h1>
