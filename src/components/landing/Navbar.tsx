@@ -51,7 +51,7 @@ const Navbar = () => {
           >
             Sign in
           </button>
-          <button className="bg-yellow-400 text-black px-5 py-2.5 rounded-xl text-sm font-bold hover:bg-yellow-300 transition duration-300">
+          <button className="bg-yellow-400 text-black px-5 py-2.5 rounded-lg text-sm font-bold hover:bg-yellow-300 transition duration-300">
             Get Tickets →
           </button>
         </div>
