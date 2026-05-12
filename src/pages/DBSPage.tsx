@@ -65,7 +65,7 @@ const DBSPage = () => {
             </p>
           </div>
 
-          <h1 className="text-white text-5xl sm:text-6xl md:text-7xl font-black leading-[1.0] tracking-tight max-w-3xl">
+          <h1 className="text-white text-4xl sm:text-5xl md:text-6xl font-black leading-[1.0] tracking-tight max-w-3xl">
             Celebrating<br />Digital<br />
             <span className="text-yellow-400">Excellence</span>
           </h1>

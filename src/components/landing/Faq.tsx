@@ -60,7 +60,7 @@ const Faq = () => {
             </p>
 
             <a
-              href="mailto:hello@dtw2026.rw"
+              href="mailto:dtw@ictchamber.rw"
               className="inline-flex items-center gap-2 mt-8 text-sm font-semibold text-white border border-white/15 px-5 py-2.5 rounded-lg hover:border-yellow-400 hover:text-yellow-400 transition duration-200"
             >
               Ask a question

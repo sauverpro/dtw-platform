@@ -7,7 +7,7 @@ const links = [
   { label: "Partners", to: "/partners" },
   { label: "DBS", to: "/dbs" },
   { label: "Previous DTWs", to: "/previous-dtws" },
-  { label: "Contact", to: "/" },
+  { label: "Contact", to: "/contact" },
 ];
 
 const Navbar = () => {

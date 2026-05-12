@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { ArrowRight, Mail, MapPin } from "lucide-react";
 
 const SocialIconX = ({ size = 14 }: { size?: number }) => (
@@ -19,7 +20,14 @@ const SocialIconInstagram = ({ size = 14 }: { size?: number }) => (
 );
 
 const Footer = () => {
-  const links = ["Home", "About", "Schedule", "Speakers", "Tickets", "Contact"];
+  const quickLinks: { label: string; to?: string }[] = [
+    { label: "Home", to: "/" },
+    { label: "About" },
+    { label: "Schedule" },
+    { label: "Speakers" },
+    { label: "Tickets" },
+    { label: "Contact", to: "/contact" },
+  ];
   const socials: { href: string; label: string; Icon: typeof SocialIconX }[] = [
     { href: "#", label: "X", Icon: SocialIconX },
     { href: "#", label: "LinkedIn", Icon: SocialIconLinkedIn },
@@ -48,7 +56,7 @@ const Footer = () => {
             </div>
             <div className="flex items-center gap-2 mt-2 text-gray-500 text-xs">
               <Mail size={12} className="text-yellow-400 shrink-0" />
-              hello@dtw2026.rw
+              dtw@ictchamber.rw
             </div>
 
             <div className="flex gap-2 mt-7">
@@ -69,16 +77,31 @@ const Footer = () => {
           <div>
             <p className="text-white text-xs font-bold uppercase tracking-[0.2em] mb-6">Quick Links</p>
             <ul className="space-y-3">
-              {links.map((link) => (
-                <li key={link}>
-                  <a className="text-gray-500 text-sm hover:text-yellow-400 cursor-pointer transition duration-200 flex items-center gap-1.5 group">
+              {quickLinks.map(({ label, to }) => {
+                const className =
+                  "text-gray-500 text-sm hover:text-yellow-400 cursor-pointer transition duration-200 flex items-center gap-1.5 group";
+                const inner = (
+                  <>
                     <span className="opacity-0 group-hover:opacity-100 -translate-x-1 group-hover:translate-x-0 transition-all duration-200">
                       <ArrowRight size={11} />
                     </span>
-                    {link}
-                  </a>
-                </li>
-              ))}
+                    {label}
+                  </>
+                );
+                return (
+                  <li key={label}>
+                    {to ? (
+                      <Link to={to} className={className}>
+                        {inner}
+                      </Link>
+                    ) : (
+                      <a href="#" className={className}>
+                        {inner}
+                      </a>
+                    )}
+                  </li>
+                );
+              })}
             </ul>
           </div>
 

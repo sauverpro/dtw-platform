@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import Navbar from "../components/landing/Navbar";
 import Footer from "../components/landing/Footer";
 
@@ -114,7 +115,7 @@ const PartnersPage = () => {
             </p>
           </div>
 
-          <h1 className="text-white text-5xl sm:text-6xl md:text-7xl font-black leading-[1.0] tracking-tight max-w-3xl">
+          <h1 className="text-white text-4xl sm:text-5xl md:text-6xl font-black leading-[1.0] tracking-tight max-w-3xl">
             Building
             <br />
             Rwanda's Digital
@@ -354,9 +355,12 @@ const PartnersPage = () => {
             <button className="bg-yellow-400 text-black font-bold px-7 py-3 rounded-lg hover:bg-yellow-300 transition duration-200 text-sm">
               Become a Partner
             </button>
-            <button className="border border-white/15 text-white font-medium px-7 py-3 rounded-lg hover:border-white/30 transition duration-200 text-sm">
+            <Link
+              to="/contact"
+              className="inline-flex items-center justify-center border border-white/15 text-white font-medium px-7 py-3 rounded-lg hover:border-white/30 transition duration-200 text-sm"
+            >
               Contact Team
-            </button>
+            </Link>
           </div>
         </div>
       </section>
