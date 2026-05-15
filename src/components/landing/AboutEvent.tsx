@@ -9,57 +9,62 @@ const stats = [
 
 const AboutEvent = () => {
   return (
-    <section className="bg-white py-16 md:py-28 px-4 md:px-6">
+    <section className="bg-[#F9F8F6] py-20 md:py-28 px-6">
       <div className="max-w-6xl mx-auto">
 
-        {/* TOP LABEL */}
-        <div className="flex items-center gap-4 mb-6">
-          <div className="h-[2px] w-10 bg-yellow-400 shrink-0"></div>
-          <p className="text-yellow-500 uppercase tracking-[4px] text-xs md:text-sm font-semibold">
+        {/* LABEL */}
+        <div className="flex items-center gap-3 mb-8">
+          <div className="h-px w-8 bg-yellow-400 shrink-0" />
+          <p className="text-yellow-500 uppercase tracking-[0.2em] text-xs font-semibold">
             About the Event
           </p>
         </div>
 
         {/* HEADING + DESCRIPTION */}
-        <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-end">
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-black leading-[1.05]">
+        <div className="grid lg:grid-cols-2 gap-10 lg:gap-20 items-end mb-14">
+          <h2 className="text-4xl sm:text-5xl font-black text-black leading-[1.08] tracking-tight">
             Digital
             <br />
             Transformation
             <br />
             Week 2026
-          </h1>
+          </h2>
 
           <div>
-            <p className="text-gray-500 text-base md:text-lg leading-relaxed">
+            <p className="text-gray-500 text-base leading-relaxed">
               Rwanda's most impactful technology event — convening government leaders,
               tech innovators, investors, and development partners to accelerate Rwanda's
               digital transformation agenda. Organized by the ICT Chamber under the
               Rwanda Private Sector Federation, in partnership with MINICT and RISA.
             </p>
-            <button className="mt-7 bg-yellow-400 text-black font-bold px-8 py-3 md:py-4 rounded-xl hover:bg-yellow-300 transition duration-300 text-sm md:text-base">
+            <button className="mt-7 bg-yellow-400 text-black font-bold px-7 py-3 rounded-lg hover:bg-yellow-300 transition duration-200 text-sm">
               Become a Partner
             </button>
           </div>
         </div>
 
-        {/* DIVIDER */}
-        <div className="border-t border-gray-100 mt-14 md:mt-20"></div>
-
-        {/* STATS CARDS */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 mt-10 md:mt-16">
-          {stats.map(({ icon: Icon, value, label }) => (
-            <div
-              key={value}
-              className="group border border-gray-100 rounded-2xl p-5 md:p-8 hover:border-yellow-400 hover:shadow-md transition duration-300"
-            >
-              <div className="w-9 h-9 bg-yellow-50 rounded-xl flex items-center justify-center mb-4">
-                <Icon className="text-yellow-500" size={17} />
+        {/* STATS — dark band */}
+        <div className="bg-black rounded-lg overflow-hidden">
+          <div className="grid grid-cols-2 md:grid-cols-4">
+            {stats.map(({ icon: Icon, value, label }, i) => (
+              <div
+                key={value}
+                className={[
+                  "group px-7 py-8 flex flex-col gap-4 transition duration-300 hover:bg-white/[0.04]",
+                  i < 3 ? "md:border-r border-white/10" : "",
+                  i < 2 ? "border-b md:border-b-0 border-white/10" : "",
+                ].join(" ")}
+              >
+                <div className="w-9 h-9 bg-yellow-400/10 rounded-lg flex items-center justify-center">
+                  <Icon className="text-white" size={16} />
+                </div>
+                <div>
+                  <p className="text-4xl font-black text-white leading-none">{value}</p>
+                  <p className="text-gray-500 text-xs mt-2 leading-snug">{label}</p>
+                </div>
               </div>
-              <h2 className="text-3xl md:text-4xl font-black text-black">{value}</h2>
-              <p className="text-gray-400 text-xs md:text-sm mt-2 leading-snug">{label}</p>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
 
       </div>

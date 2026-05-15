@@ -55,7 +55,6 @@ function EventCard({ title, image, date, location, floor, slotsLeft }: EventCard
         </p>
         <h2
           className="text-white text-2xl leading-none tracking-wide"
-          style={{ fontFamily: "'Bebas Neue', sans-serif" }}
         >
           {title}
         </h2>
@@ -109,11 +108,11 @@ const events: EventCardProps[] = [
 ];
 
 const galleryImages = [
-  { src: previous1, height: "h-48", alt: "DTWS 2025 highlight 1" },
-  { src: previous2, height: "h-64", alt: "DTWS 2025 highlight 2" },
-  { src: previous3, height: "h-48", alt: "DTWS 2025 highlight 3" },
-  { src: previous4, height: "h-64", alt: "DTWS 2025 highlight 4" },
-  { src: previous5, height: "h-72", alt: "DTWS 2025 highlight 5" },
+  { src: previous1, height: "h-48", alt: "DTW 2025 highlight 1" },
+  { src: previous2, height: "h-64", alt: "DTW 2025 highlight 2" },
+  { src: previous3, height: "h-48", alt: "DTW 2025 highlight 3" },
+  { src: previous4, height: "h-64", alt: "DTW 2025 highlight 4" },
+  { src: previous5, height: "h-72", alt: "DTW 2025 highlight 5" },
 ];
 
 const UpcomingEvents = () => {
@@ -123,12 +122,12 @@ const UpcomingEvents = () => {
 
         {/* ── HEADER ── */}
         <p className="text-yellow-400 text-xs font-medium tracking-[.2em] uppercase">
-          Upcoming · DTWS 2026
+          Upcoming · DTW 2026
         </p>
 
         <h1
           className="text-white leading-[.95] mt-3"
-          style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "clamp(48px, 7vw, 80px)" }}
+          style={{ fontSize: "clamp(48px, 7vw, 80px)" }}
         >
           Don't Miss<br />
           What's <span className="text-yellow-400">Next</span>
@@ -156,9 +155,9 @@ const UpcomingEvents = () => {
             </p>
             <h1
               className="text-white leading-[.95] mt-3"
-              style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "clamp(40px, 6vw, 72px)" }}
+              style={{ fontSize: "clamp(40px, 6vw, 72px)" }}
             >
-              DTWS <span className="text-yellow-400">2025</span>
+              DTW <span className="text-yellow-400">2025</span>
             </h1>
           </div>
           <p className="text-gray-500 text-sm font-light max-w-[200px] text-right">

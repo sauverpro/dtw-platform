@@ -56,19 +56,16 @@ const Speakers = () => {
   const prev = () => setCurrent((c) => (c - 1 + speakers.length) % speakers.length);
   const next = () => setCurrent((c) => (c + 1) % speakers.length);
 
-  // Show 2 cards at a time (wrapping)
   const visible = [speakers[current], speakers[(current + 1) % speakers.length]];
 
   return (
-    <section className="bg-[#F7F7F5] py-16 md:py-28 px-4 md:px-6">
+    <section className="bg-[#F7F7F5] py-20 md:py-28 px-6">
       <div className="max-w-7xl mx-auto">
 
-        {/* SECTION LABEL */}
-        <div className="flex items-center gap-4 mb-10">
-          <div className="h-[2px] w-10 bg-yellow-400 shrink-0"></div>
-          <p className="text-yellow-500 uppercase tracking-[4px] text-xs md:text-sm font-semibold">
-            Speakers
-          </p>
+        {/* LABEL */}
+        <div className="flex items-center gap-3 mb-10">
+          <div className="h-px w-8 bg-yellow-400 shrink-0" />
+          <p className="text-yellow-500 uppercase tracking-[0.2em] text-xs font-semibold">Speakers</p>
         </div>
 
         {/* TOP SECTION */}
@@ -76,39 +73,33 @@ const Speakers = () => {
 
           {/* LEFT */}
           <div>
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-black leading-[1.05]">
+            <h2 className="text-4xl sm:text-5xl font-black text-black leading-[1.08] tracking-tight">
               World-class
               <br />
               Speakers
-            </h1>
-            <p className="text-gray-500 text-base md:text-lg mt-7 leading-relaxed max-w-lg">
-              We host a lineup of leaders and innovators who bring a wealth of knowledge,
-              experience, and inspiration from across the continent and beyond.
+            </h2>
+            <p className="text-gray-500 text-sm mt-6 leading-relaxed max-w-md">
+              A lineup of leaders and innovators bringing knowledge, experience, and inspiration from across the continent and beyond.
             </p>
-            <button className="mt-7 border border-black text-black font-bold px-7 py-3 rounded-xl hover:bg-black hover:text-white transition duration-300 text-sm">
+            <button className="mt-7 border border-black/20 text-black font-semibold px-6 py-2.5 rounded-lg hover:bg-black hover:text-white transition duration-200 text-sm">
               View all speakers
             </button>
           </div>
 
           {/* RIGHT — CAROUSEL */}
           <div>
-            {/* CARDS */}
-            <div className="flex gap-4 sm:gap-6 overflow-hidden">
+            <div className="flex gap-4 overflow-hidden">
               {visible.map((speaker, i) => (
                 <div
                   key={speaker.name + i}
-                  className={`bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 flex-1 transition-all duration-300 ${
-                    i === 1 ? "mt-8 sm:mt-12" : ""
+                  className={`bg-white rounded-xl overflow-hidden shadow-sm border border-gray-100/80 flex-1 transition-all duration-300 ${
+                    i === 1 ? "mt-8" : ""
                   }`}
                 >
-                  <img
-                    src={speaker.img}
-                    alt={speaker.name}
-                    className="h-56 sm:h-72 w-full object-cover"
-                  />
-                  <div className="p-4 md:p-5">
-                    <h2 className="text-sm md:text-base font-bold text-black">{speaker.name}</h2>
-                    <p className="text-yellow-500 text-xs md:text-sm mt-1">{speaker.role}</p>
+                  <img src={speaker.img} alt={speaker.name} className="h-52 sm:h-64 w-full object-cover" />
+                  <div className="p-4">
+                    <p className="text-sm font-bold text-black">{speaker.name}</p>
+                    <p className="text-yellow-500 text-xs mt-0.5">{speaker.role}</p>
                     <p className="text-gray-400 text-xs mt-0.5">{speaker.company}</p>
                   </div>
                 </div>
@@ -116,103 +107,88 @@ const Speakers = () => {
             </div>
 
             {/* CONTROLS */}
-            <div className="flex items-center gap-4 mt-8">
-              {/* PREV / NEXT */}
-              <button
-                onClick={prev}
-                className="w-10 h-10 rounded-full border border-gray-200 flex items-center justify-center hover:border-yellow-400 hover:text-yellow-500 transition"
-              >
-                <ChevronLeft size={18} />
+            <div className="flex items-center gap-3 mt-6">
+              <button onClick={prev} className="w-9 h-9 rounded-full border border-gray-200 flex items-center justify-center hover:border-yellow-400 hover:text-yellow-500 transition">
+                <ChevronLeft size={16} />
               </button>
-              <button
-                onClick={next}
-                className="w-10 h-10 rounded-full border border-gray-200 flex items-center justify-center hover:border-yellow-400 hover:text-yellow-500 transition"
-              >
-                <ChevronRight size={18} />
+              <button onClick={next} className="w-9 h-9 rounded-full border border-gray-200 flex items-center justify-center hover:border-yellow-400 hover:text-yellow-500 transition">
+                <ChevronRight size={16} />
               </button>
 
-              {/* DOTS */}
-              <div className="flex gap-2 ml-2">
+              <div className="flex gap-1.5 ml-2">
                 {speakers.map((_, i) => (
                   <button
                     key={i}
                     onClick={() => setCurrent(i)}
                     className={`rounded-full transition-all duration-300 ${
-                      i === current ? "w-6 h-2 bg-yellow-400" : "w-2 h-2 bg-gray-300"
+                      i === current ? "w-5 h-1.5 bg-yellow-400" : "w-1.5 h-1.5 bg-gray-300"
                     }`}
                   />
                 ))}
               </div>
 
-              <span className="ml-auto text-gray-400 text-sm">
+              <span className="ml-auto text-gray-400 text-xs">
                 {current + 1} / {speakers.length}
               </span>
             </div>
           </div>
-
         </div>
 
-        {/* PRICING SECTION */}
+        {/* PRICING */}
         <div className="mt-20 md:mt-28">
+          <div className="flex items-center gap-3 mb-8">
+            <div className="h-px w-8 bg-yellow-400 shrink-0" />
+            <p className="text-yellow-500 uppercase tracking-[0.2em] text-xs font-semibold">Pricing</p>
+          </div>
 
-          {/* HEADING */}
-          <div className="grid lg:grid-cols-2 gap-8 mb-12">
-            <div>
-              <p className="text-yellow-500 uppercase tracking-[4px] text-xs md:text-sm font-semibold mb-4">Pricing</p>
-              <h2 className="text-4xl md:text-5xl font-black text-black leading-tight">
-                Pick your
-                <br />
-                experience
-              </h2>
-            </div>
+          <div className="grid lg:grid-cols-2 gap-8 mb-10">
+            <h2 className="text-4xl sm:text-5xl font-black text-black leading-tight tracking-tight">
+              Pick your<br />experience
+            </h2>
             <div className="flex items-end">
-              <p className="text-gray-500 text-base md:text-lg leading-relaxed">
-                Our event offers a variety of options to accommodate different needs.
+              <p className="text-gray-500 text-sm leading-relaxed">
                 Whether attending as an individual or a corporate group, we have a package for you.
               </p>
             </div>
           </div>
 
           {/* CARDS */}
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {pricingPlans.map((plan) => (
               <div
                 key={plan.name}
-                className={`rounded-2xl p-6 md:p-8 flex flex-col transition duration-300 ${
+                className={`rounded-xl p-6 flex flex-col transition duration-300 ${
                   plan.featured
                     ? "bg-black text-white"
-                    : "bg-white border border-gray-100 text-black hover:border-yellow-400"
+                    : "bg-white border border-gray-100 text-black hover:border-yellow-400/50"
                 }`}
               >
                 <div className="flex items-start justify-between">
-                  <h2 className={`text-lg md:text-xl font-bold ${plan.featured ? "text-white" : "text-black"}`}>
+                  <p className={`text-sm font-bold ${plan.featured ? "text-white" : "text-black"}`}>
                     {plan.name}
-                  </h2>
+                  </p>
                   {plan.featured && (
-                    <span className="bg-yellow-400 text-black text-xs font-bold px-3 py-1 rounded-full">
+                    <span className="bg-yellow-400 text-black text-[10px] font-bold px-2.5 py-1 rounded-full">
                       Popular
                     </span>
                   )}
                 </div>
 
-                <p className={`text-4xl md:text-5xl font-black mt-4 ${plan.featured ? "text-white" : "text-black"}`}>
+                <p className={`text-4xl font-black mt-4 tracking-tight ${plan.featured ? "text-white" : "text-black"}`}>
                   {plan.price}
                 </p>
-                <p className="text-sm mt-2 text-gray-400">{plan.note}</p>
+                <p className="text-xs mt-1.5 text-gray-400">{plan.note}</p>
 
-                <div className="space-y-3 mt-7 flex-1">
+                <div className="space-y-2.5 mt-6 flex-1">
                   {plan.features.map((f) => (
-                    <p
-                      key={f}
-                      className={`text-sm flex items-center gap-2 ${plan.featured ? "text-gray-300" : "text-gray-600"}`}
-                    >
-                      <span className="text-yellow-400 font-bold">✓</span> {f}
+                    <p key={f} className={`text-xs flex items-center gap-2 ${plan.featured ? "text-gray-300" : "text-gray-500"}`}>
+                      <span className="text-yellow-400 font-bold text-sm">✓</span> {f}
                     </p>
                   ))}
                 </div>
 
                 <button
-                  className={`mt-8 py-3 rounded-xl font-bold text-sm transition duration-300 ${
+                  className={`mt-7 py-2.5 rounded-lg font-bold text-sm transition duration-200 ${
                     plan.featured
                       ? "bg-yellow-400 text-black hover:bg-yellow-300"
                       : "bg-gray-100 text-black hover:bg-yellow-400"
@@ -223,8 +199,8 @@ const Speakers = () => {
               </div>
             ))}
           </div>
-
         </div>
+
       </div>
     </section>
   );
