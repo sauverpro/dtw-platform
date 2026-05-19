@@ -211,7 +211,7 @@ const UpcomingEvents = () => {
         <div className="flex items-center gap-3 mb-6">
           <div className="h-px w-8 bg-yellow-400 shrink-0" />
           <p className="text-yellow-400 text-[11px] font-semibold tracking-[0.2em] uppercase">
-            Upcoming · DTWS 2026
+            Upcoming · DTW 2026
           </p>
         </div>
 
@@ -241,7 +241,7 @@ const UpcomingEvents = () => {
               <p className="text-yellow-400 text-[11px] font-semibold tracking-[0.2em] uppercase">Highlights</p>
             </div>
             <h2 className="text-white text-4xl sm:text-5xl font-black leading-tight tracking-tight">
-              DTWS <span className="text-yellow-400">2025</span>
+              DTW <span className="text-yellow-400">2025</span>
             </h2>
           </div>
           <p className="text-gray-500 text-sm sm:max-w-[200px] sm:text-right">
