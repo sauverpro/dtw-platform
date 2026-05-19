@@ -171,9 +171,14 @@ const DBSPage = () => {
               impactful digital solutions shaping Africa's future.
             </p>
 
-            <button className="mt-9 bg-yellow-400 text-black font-bold px-7 py-3 rounded-lg hover:bg-yellow-300 transition duration-200 text-sm">
+            <a
+              href="https://dtw-smoky.vercel.app/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-9 inline-flex items-center justify-center bg-yellow-400 text-black font-bold px-7 py-3 rounded-lg hover:bg-yellow-300 transition duration-200 text-sm"
+            >
               Become a Sponsor
-            </button>
+            </a>
           </div>
 
           {/* RIGHT */}

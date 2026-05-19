@@ -51,30 +51,6 @@ const stats = [
   { number: "100+", label: "Partners"  },
 ];
 
-const packages = [
-  {
-    name: "Bronze",
-    price: "$2,000",
-    note: "Perfect for growing brands.",
-    features: ["Brand Visibility", "Website Placement", "Community Access", "Event Mentions"],
-    featured: false,
-  },
-  {
-    name: "Silver",
-    price: "$5,000",
-    note: "Maximize your conference presence.",
-    features: ["Exhibition Booth", "Social Media Promotion", "Networking Access", "Event Branding"],
-    featured: false,
-  },
-  {
-    name: "Gold",
-    price: "$10,000",
-    note: "The premium partnership tier.",
-    features: ["Premium Booth", "Main Stage Branding", "VIP Access", "Speaking Opportunity"],
-    featured: true,
-  },
-];
-
 const testimonials = [
   {
     quote: "DTW connected us with incredible innovation opportunities and helped us reach Africa's growing digital ecosystem.",
@@ -257,70 +233,33 @@ const PartnersPage = () => {
         </div>
       </section>
 
-      {/* ── SPONSORSHIP PACKAGES ──────────────────────────── */}
+      {/* SPONSORSHIP CTA */}
       <section className="bg-[#080808] py-20 md:py-28 px-6">
         <div className="max-w-7xl mx-auto">
 
           <div className="flex items-center gap-3 mb-5">
             <div className="h-px w-8 bg-yellow-400" />
-            <p className="text-yellow-400 text-xs font-semibold tracking-[0.2em] uppercase">Packages</p>
+            <p className="text-yellow-400 text-xs font-semibold tracking-[0.2em] uppercase">Sponsorship</p>
           </div>
 
-          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-12">
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
             <h2 className="text-white text-4xl sm:text-5xl font-black leading-tight tracking-tight">
-              Sponsorship<br />Packages
+              Explore Our<br />Sponsorship Offer
             </h2>
-            <p className="text-gray-500 text-sm max-w-[200px]">
-              Choose the tier that fits your partnership goals.
+            <p className="text-gray-400 text-sm max-w-[300px]">
+              Discover sponsorship opportunities and choose the best fit for your organization.
             </p>
           </div>
 
-          <div className="grid lg:grid-cols-3 gap-4">
-            {packages.map((pkg, i) => (
-              <div
-                key={i}
-                className={`rounded-xl p-7 flex flex-col transition duration-300 ${
-                  pkg.featured
-                    ? "bg-yellow-400"
-                    : "bg-[#111] border border-white/[0.07] hover:border-white/15"
-                }`}
-              >
-                <div className="flex items-start justify-between">
-                  <p className={`text-sm font-bold ${pkg.featured ? "text-black" : "text-white"}`}>
-                    {pkg.name}
-                  </p>
-                  {pkg.featured && (
-                    <span className="bg-black text-yellow-400 text-[10px] font-bold px-2.5 py-1 rounded-full">
-                      Best Value
-                    </span>
-                  )}
-                </div>
-
-                <p className={`text-4xl font-black mt-5 tracking-tight ${pkg.featured ? "text-black" : "text-white"}`}>
-                  {pkg.price}
-                </p>
-                <p className={`text-xs mt-1.5 ${pkg.featured ? "text-black/60" : "text-gray-500"}`}>{pkg.note}</p>
-
-                <div className="space-y-3 mt-7 flex-1">
-                  {pkg.features.map((f) => (
-                    <p key={f} className={`text-xs flex items-center gap-2.5 ${pkg.featured ? "text-black/80" : "text-gray-400"}`}>
-                      <span className={`font-bold text-sm ${pkg.featured ? "text-black" : "text-yellow-400"}`}>✓</span>
-                      {f}
-                    </p>
-                  ))}
-                </div>
-
-                <button
-                  className={`mt-8 py-2.5 rounded-lg font-bold text-sm transition duration-200 ${
-                    pkg.featured
-                      ? "bg-black text-white hover:bg-[#111]"
-                      : "bg-white/5 text-white border border-white/10 hover:bg-yellow-400 hover:text-black hover:border-transparent"
-                  }`}
-                >
-                  Choose Package
-                </button>
-              </div>
-            ))}
+          <div className="mt-9">
+            <a
+              href="https://dtw-smoky.vercel.app/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center bg-yellow-400 text-black font-bold px-7 py-3 rounded-lg hover:bg-yellow-300 transition duration-200 text-sm"
+            >
+              Sponsor Us
+            </a>
           </div>
         </div>
       </section>
@@ -371,3 +310,4 @@ const PartnersPage = () => {
 };
 
 export default PartnersPage;
+

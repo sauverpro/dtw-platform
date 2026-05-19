@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { NavLink } from "react-router-dom";
 
+const SPONSOR_URL = "https://dtw-smoky.vercel.app/";
+
 const links = [
   { label: "Home", to: "/" },
   { label: "Partners", to: "/partners" },
@@ -61,16 +63,14 @@ const Navbar = () => {
 
         {/* RIGHT SIDE — DESKTOP */}
         <div className="hidden md:flex items-center gap-4">
-          <button
-            className={`text-sm font-medium transition-colors duration-200 ${
-              scrolled ? "text-gray-600 hover:text-black" : "text-white/80 hover:text-white"
-            }`}
+          <a
+            href={SPONSOR_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="bg-yellow-400 text-black px-5 py-2.5 rounded-md text-sm font-bold hover:bg-yellow-300 transition duration-300"
           >
-            Sign in
-          </button>
-          <button className="bg-yellow-400 text-black px-5 py-2.5 rounded-lg text-sm font-bold hover:bg-yellow-300 transition duration-300">
-            Get Tickets →
-          </button>
+            Sponsor Us
+          </a>
         </div>
 
         {/* MOBILE: Get Tickets + Hamburger */}
