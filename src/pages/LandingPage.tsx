@@ -3,10 +3,9 @@ import UpcomingEvents from "../components/landing/Event"
 import Footer from "../components/landing/Footer"
 import AboutEvent from "../components/landing/AboutEvent"
 import TicketsPartners from "../components/landing/TicketsPartners"
-import Schedule from "../components/landing/Schedule"
-import Speakers from "../components/landing/Speakers"
 import Navbar from "../components/landing/Navbar"
 import Faq from "../components/landing/Faq"
+import ScheduleSpeakers from "../components/landing/Schedulespeakers"
 const LandingPage = () => {
   return (
     <div>
@@ -16,8 +15,7 @@ const LandingPage = () => {
           <AboutEvent />
 
       <TicketsPartners />
-      <Schedule />
-      <Speakers />
+        <ScheduleSpeakers />
       <Faq />
         <Footer />
     </div>
