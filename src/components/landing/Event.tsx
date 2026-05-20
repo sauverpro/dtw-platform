@@ -36,6 +36,7 @@ function EventCard({ title, image, date, location, slotsLeft }: EventCardProps) 
           alt={title}
           className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105 brightness-70 group-hover:brightness-85"
         />
+        
         <span className="absolute top-3 right-3 text-[10px] font-semibold tracking-wider uppercase text-white/70 bg-black/40 backdrop-blur-sm px-2 py-1 rounded-full border border-white/10">
           {slotsLeft} slots left
         </span>
