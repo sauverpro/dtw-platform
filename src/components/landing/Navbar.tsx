@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
+import { DTW_LOGO_URL } from "../../constants/brand";
 
 const SPONSOR_URL = "https://dtw-smoky.vercel.app/";
 
@@ -33,9 +34,13 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto flex items-center justify-between px-4 md:px-8">
 
         {/* LOGO */}
-        <h1 className={`font-black text-xl md:text-2xl tracking-tight transition-colors duration-300 ${scrolled ? "text-black" : "text-white"}`}>
-          DTW<span className="text-yellow-400">2026</span>
-        </h1>
+        <Link to="/" className="shrink-0" onClick={() => setMobileOpen(false)}>
+          <img
+            src={DTW_LOGO_URL}
+            alt="Digital Transformation Week 2026"
+            className="h-9 md:h-11 w-auto"
+          />
+        </Link>
 
         {/* DESKTOP MENU */}
         <ul className="hidden md:flex items-center gap-6 lg:gap-8">

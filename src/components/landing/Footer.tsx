@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { ArrowRight, Mail, MapPin } from "lucide-react";
+import { DTW_LOGO_URL } from "../../constants/brand";
 
 const SocialIconX = ({ size = 14 }: { size?: number }) => (
   <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" aria-hidden>
@@ -42,9 +43,13 @@ const Footer = () => {
 
           {/* BRAND */}
           <div>
-            <h2 className="text-yellow-400 text-2xl font-black tracking-tight">
-              DTW<span className="text-white">2026</span>
-            </h2>
+            <Link to="/" className="inline-block">
+              <img
+                src={DTW_LOGO_URL}
+                alt="Digital Transformation Week 2026"
+                className="h-12 md:h-14 w-auto max-w-[min(100%,280px)]"
+              />
+            </Link>
             <p className="text-gray-500 text-sm mt-4 leading-relaxed max-w-xs">
               Africa's leading technology and innovation conference — connecting startups,
               leaders, and investors to shape the continent's digital future.
