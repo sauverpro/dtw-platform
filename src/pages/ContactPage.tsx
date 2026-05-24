@@ -19,7 +19,7 @@ const contactInfo = [
   {
     icon: Phone,
     label: "Phone",
-    value: "+250 788 000 000",
+    value: "+250 793 902 451 | +250 784 499 094 ",
     sub: "Mon – Fri, 8:00 AM – 6:00 PM",
   },
   {
@@ -414,7 +414,7 @@ export default function ContactPage() {
               </p>
               <div className="flex gap-3 shrink-0">
                 <button className="bg-yellow-400 text-black font-bold px-6 py-2.5 rounded-lg hover:bg-yellow-300 transition text-sm">
-                  Get Tickets
+                  Book Now
                 </button>
                 <button className="border border-white/15 text-white font-medium px-6 py-2.5 rounded-lg hover:border-white/30 transition text-sm">
                   Learn More
