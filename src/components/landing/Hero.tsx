@@ -97,9 +97,9 @@ const Hero = () => {
                 <h1 className="text-5xl sm:text-5xl lg:text-6xl font-black leading-[1.0] text-white tracking-tight">
                   DIGITAL
                   <br />
-                  TRANSFORM
-                  <br />
-                  ATION
+                  TRANSFORMATION
+        
+                  
                   <br />
                   <span className="text-yellow-400">WEEK</span>
                 </h1>
