@@ -1,4 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
+import img1 from '../../assets/img1.jpg';
+import img6 from '../../assets/img 6.jpg';
+import img10 from '../../assets/img10.jpg';
 
 // DTW 2026 opens 7 December 2026, 08:00 CAT (UTC+2)
 const DTW_TARGET = new Date("2026-12-07T08:00:00+02:00");
@@ -24,19 +27,19 @@ const Hero = () => {
       id: 1,
       title: "Events",
       subtitle: "Live Talks & Workshops",
-      image: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?q=80&w=1200&auto=format&fit=crop",
+      image: img10,
     },
     {
       id: 2,
       title: "DTW 2026",
       subtitle: "Digital Transformation Week",
-      image: "https://images.unsplash.com/photo-1511578314322-379afb476865?q=80&w=1200&auto=format&fit=crop",
+      image: img6,
     },
     {
       id: 3,
       title: "DBS",
       subtitle: "Digital Business Summit",
-      image: "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?q=80&w=1200&auto=format&fit=crop",
+      image: img1,
     }
   ];
 
