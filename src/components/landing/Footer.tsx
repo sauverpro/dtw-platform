@@ -27,8 +27,12 @@ const Footer = () => {
     { label: "Schedule" },
     { label: "Speakers" },
     { label: "Register", to: "/register" },
+    { label: "Partners", to: "/partners" },
+    { label: "Previous DTWs", to: "/previous-dtws" },
+    { label: "DBS", to: "/dbs" },
     { label: "Contact", to: "/contact" },
   ];
+
   const socials: { href: string; label: string; Icon: typeof SocialIconX }[] = [
     { href: "#", label: "X", Icon: SocialIconX },
     { href: "#", label: "LinkedIn", Icon: SocialIconLinkedIn },
@@ -39,7 +43,7 @@ const Footer = () => {
     <footer className="bg-[#0E0E0E] border-t border-white/[0.04] pt-16 px-6 pb-8">
       <div className="max-w-7xl mx-auto">
 
-        <div className="grid md:grid-cols-[1.4fr_1fr_1fr_1.4fr] gap-12">
+        <div className="grid md:grid-cols-[1.6fr_1fr_1fr] gap-12">
 
           {/* BRAND */}
           <div>
@@ -50,7 +54,7 @@ const Footer = () => {
                 className="h-12 md:h-14 w-auto max-w-[min(100%,280px)]"
               />
             </Link>
-            <p className="text-gray-500 text-sm mt-4 leading-relaxed max-w-xs">
+            <p className="text-gray-500 text-sm mt-5 leading-relaxed max-w-xs">
               Africa's leading technology and innovation conference — connecting startups,
               leaders, and investors to shape the continent's digital future.
             </p>
@@ -83,7 +87,7 @@ const Footer = () => {
             <p className="text-white text-xs font-bold uppercase tracking-[0.2em] mb-6">Quick Links</p>
             <ul className="space-y-3">
               {quickLinks.map(({ label, to }) => {
-                const className =
+                const cls =
                   "text-gray-500 text-sm hover:text-yellow-400 cursor-pointer transition duration-200 flex items-center gap-1.5 group";
                 const inner = (
                   <>
@@ -96,13 +100,9 @@ const Footer = () => {
                 return (
                   <li key={label}>
                     {to ? (
-                      <Link to={to} className={className}>
-                        {inner}
-                      </Link>
+                      <Link to={to} className={cls}>{inner}</Link>
                     ) : (
-                      <a href="#" className={className}>
-                        {inner}
-                      </a>
+                      <a href="#" className={cls}>{inner}</a>
                     )}
                   </li>
                 );
@@ -113,33 +113,19 @@ const Footer = () => {
           {/* EVENT INFO */}
           <div>
             <p className="text-white text-xs font-bold uppercase tracking-[0.2em] mb-6">Event Dates</p>
-            <div className="space-y-3">
-              {["Day 01 — May 13", "Day 02 — May 14", "Day 03 — May 15"].map((d) => (
+            <div className="space-y-2.5">
+              {[
+                "7 Dec — Province Engagements Begin",
+                "11 Dec — Digital Business Summit",
+              ].map((d) => (
                 <p key={d} className="text-gray-500 text-sm">{d}</p>
               ))}
             </div>
 
             <div className="mt-7 bg-yellow-400/8 border border-yellow-400/15 rounded-lg px-4 py-3.5">
-              <p className="text-yellow-400 text-[10px] font-bold uppercase tracking-wider mb-1">Early bird ends</p>
-              <p className="text-white text-sm font-semibold">April 30, 2026</p>
-            </div>
-          </div>
-
-          {/* NEWSLETTER */}
-          <div>
-            <p className="text-white text-xs font-bold uppercase tracking-[0.2em] mb-6">Stay Updated</p>
-            <p className="text-gray-500 text-sm mb-5 leading-relaxed">
-              Get the latest news, speaker announcements, and event updates straight to your inbox.
-            </p>
-            <div className="flex flex-col gap-2.5">
-              <input
-                type="email"
-                placeholder="your@email.com"
-                className="w-full bg-white/[0.04] border border-white/8 rounded-lg px-4 py-2.5 text-white text-sm outline-none focus:border-yellow-400/40 transition placeholder:text-gray-600"
-              />
-              <button className="w-full bg-yellow-400 text-black py-2.5 rounded-lg font-bold text-sm hover:bg-yellow-300 transition duration-200">
-                Subscribe
-              </button>
+              <p className="text-yellow-400 text-[10px] font-bold uppercase tracking-wider mb-1">Location</p>
+              <p className="text-white text-sm font-semibold">Kigali, Rwanda</p>
+              <p className="text-gray-500 text-xs mt-0.5">December 2026</p>
             </div>
           </div>
 
@@ -147,7 +133,7 @@ const Footer = () => {
 
         {/* BOTTOM BAR */}
         <div className="border-t border-white/[0.04] mt-14 pt-6 flex flex-col md:flex-row items-center justify-between gap-3 text-gray-600 text-xs">
-          <p>© 2026 DTW Conference. All rights reserved.</p>
+          <p>© 2026 Digital Transformation Week. Organized by ICT Chamber, MINICT & RISA.</p>
           <div className="flex gap-5">
             <a className="hover:text-gray-400 cursor-pointer transition">Privacy Policy</a>
             <a className="hover:text-gray-400 cursor-pointer transition">Terms of Service</a>

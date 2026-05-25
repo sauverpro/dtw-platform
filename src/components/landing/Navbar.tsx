@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { Link, NavLink } from "react-router-dom";
-import { DTW_LOGO_URL } from "../../constants/brand";
+import { DTW_LOGO_URL, DTW_LOGO_SCROLLED_URL } from "../../constants/brand";
 
 const SPONSOR_URL = "https://dtw-smoky.vercel.app/";
 
@@ -44,9 +44,9 @@ const Navbar = ({ variant = "dark" }: NavbarProps) => {
         {/* LOGO */}
         <Link to="/" className="shrink-0" onClick={() => setMobileOpen(false)}>
           <img
-            src={DTW_LOGO_URL}
+            src={scrolled ? DTW_LOGO_SCROLLED_URL : DTW_LOGO_URL}
             alt="Digital Transformation Week 2026"
-            className="h-9 md:h-11 w-auto"
+            className="h-9 md:h-11 w-auto transition-opacity duration-300"
           />
         </Link>
 
