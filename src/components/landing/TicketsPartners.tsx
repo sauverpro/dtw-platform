@@ -12,7 +12,7 @@ const TicketsPartners = () => {
         {/* TICKET BANNER */}
         <div className="relative rounded-2xl overflow-hidden h-[340px] md:h-[420px]">
           <img
-            src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?q=80&w=1400&auto=format&fit=crop"
+            src="https://res.cloudinary.com/dc6iwekzx/image/upload/v1779717447/55044284276_4b82cb6800_k_sc3bbu.jpg"
             className="w-full h-full object-cover"
             alt="Conference crowd"
           />
@@ -20,12 +20,6 @@ const TicketsPartners = () => {
 
           <div className="absolute inset-0 flex items-center px-8 sm:px-12 md:px-14">
             <div className="max-w-md">
-              <div className="flex items-center gap-3 mb-5">
-                <span className="bg-red-500 text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider">
-                  20% Off
-                </span>
-                <span className="text-white/60 text-xs">Limited time offer</span>
-              </div>
 
               <h2 className="text-white text-4xl sm:text-5xl font-black leading-tight tracking-tight">
                 Get Your<br />Tickets

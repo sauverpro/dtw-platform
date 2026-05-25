@@ -94,7 +94,7 @@ const Hero = () => {
                 <p className="text-white/50 text-xs font-semibold tracking-[0.2em] uppercase mb-4">
                   Kigali, Rwanda · May 13–15, 2026
                 </p>
-                <h1 className="text-5xl sm:text-5xl lg:text-6xl font-black leading-[1.0] text-white tracking-tight">
+                <h1 className="text-4xl sm:text-4xl lg:text-5xl font-black leading-[1.0] text-white tracking-tight">
                   DIGITAL
                   <br />
                   TRANSFORMATION
@@ -111,7 +111,7 @@ const Hero = () => {
 
               <div className="flex items-center gap-3">
                 <button className="px-6 py-3 rounded-lg bg-yellow-400 text-black font-bold text-sm hover:bg-yellow-300 transition-all duration-200">
-                  Get Tickets
+                  Get your Seats
                 </button>
                 <button className="px-6 py-3 rounded-lg border border-white/20 text-white font-medium text-sm hover:border-white/40 transition-all duration-200">
                   Learn More
