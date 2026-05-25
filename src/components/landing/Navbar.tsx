@@ -44,7 +44,7 @@ const Navbar = ({ variant = "dark" }: NavbarProps) => {
         {/* LOGO */}
         <Link to="/" className="shrink-0" onClick={() => setMobileOpen(false)}>
           <img
-            src={scrolled ? DTW_LOGO_SCROLLED_URL : DTW_LOGO_URL}
+            src={solidNav ? DTW_LOGO_SCROLLED_URL : DTW_LOGO_URL}
             alt="Digital Transformation Week 2026"
             className="h-9 md:h-11 w-auto transition-opacity duration-300"
           />

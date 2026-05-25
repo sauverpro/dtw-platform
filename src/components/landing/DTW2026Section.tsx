@@ -34,13 +34,6 @@ const DTW2026Section = () => {
 
         {/* Theme banner */}
         <div className="relative rounded-2xl overflow-hidden bg-black mb-14 md:mb-20">
-          <div
-            className="absolute inset-0 opacity-20"
-            style={{
-              backgroundImage:
-                "radial-gradient(circle at 70% 50%, #facc15 0%, transparent 60%)",
-            }}
-          />
           <div className="relative z-10 px-8 md:px-14 py-10 md:py-14 max-w-3xl">
             <p className="text-yellow-400 text-[10px] font-bold uppercase tracking-[0.25em] mb-4">
               Theme
@@ -89,7 +82,7 @@ const DTW2026Section = () => {
           {/* Why section */}
           <div className="lg:col-span-5">
             <p className="text-xs font-bold uppercase tracking-[0.2em] text-black mb-6">
-              Why Being Part of DTW 2026
+              Why Be Part of DTW 2026
             </p>
             <p className="text-gray-500 text-sm leading-relaxed mb-8">
               Exploring the opportunities that inclusive digital transformation brings to Rwanda's
@@ -113,15 +106,16 @@ const DTW2026Section = () => {
           <p className="text-xs font-bold uppercase tracking-[0.2em] text-black mb-6">Programme Overview</p>
           <div className="rounded-2xl overflow-hidden border border-black/[0.07]">
             {/* table header */}
-            <div className="hidden sm:grid grid-cols-[90px_130px_1fr_1fr] bg-black text-white/50 text-[10px] font-bold uppercase tracking-[0.18em] px-6 py-3 gap-4">
+            <div className="hidden sm:grid grid-cols-[90px_130px_1fr_1fr] bg-black text-white text-[10px] font-bold uppercase tracking-[0.18em] px-6 py-3 gap-4">
               <span>Date</span>
               <span>Location</span>
-              <span>Forum / Focus</span>
+              <span>Focus Stroke Area</span>
               <span>Key Activities</span>
             </div>
             {[
               {
                 date: "7 Dec",
+                day: "Monday",
                 location: "Northern Province",
                 forum: "Digital Innovation Forum",
                 focus: "AgriTech, Tourism Tech & SME Growth",
@@ -130,6 +124,7 @@ const DTW2026Section = () => {
               },
               {
                 date: "8 Dec",
+                day: "Tuesday",
                 location: "Southern Province",
                 forum: "Digital Innovation Forum",
                 focus: "EdTech, Creative Economy & SME Growth",
@@ -138,6 +133,7 @@ const DTW2026Section = () => {
               },
               {
                 date: "9 Dec",
+                day: "Wednesday",
                 location: "Western Province",
                 forum: "Digital Trade Forum",
                 focus: "Digital Trade & SME Growth",
@@ -146,6 +142,7 @@ const DTW2026Section = () => {
               },
               {
                 date: "10 Dec",
+                day: "Thursday",
                 location: "Eastern Province",
                 forum: "Smart Economy Forum",
                 focus: "Smart Agriculture, Logistics & SME Growth",
@@ -154,6 +151,7 @@ const DTW2026Section = () => {
               },
               {
                 date: "11 Dec",
+                day: "Friday",
                 location: "Kigali",
                 forum: "Digital Business Summit",
                 focus: "National summit & policy dialogue",
@@ -172,13 +170,14 @@ const DTW2026Section = () => {
                     {row.date}
                   </span>
                   <span className={`block text-[10px] ${row.highlight ? "text-white/40" : "text-gray-400"}`}>2026</span>
+                  <span className={`block text-[10px] font-semibold mt-0.5 ${row.highlight ? "text-white/50" : "text-gray-500"}`}>{row.day}</span>
                 </div>
                 <p className={`text-sm font-semibold ${row.highlight ? "text-white" : "text-black"}`}>{row.location}</p>
                 <div>
                   <p className={`text-sm font-semibold leading-snug ${row.highlight ? "text-white" : "text-black"}`}>{row.forum}</p>
                   <p className={`text-xs mt-1 ${row.highlight ? "text-yellow-400" : "text-yellow-600"}`}>{row.focus}</p>
                 </div>
-                <p className={`text-xs leading-relaxed ${row.highlight ? "text-white/60" : "text-gray-500"}`}>{row.activities}</p>
+                <p className={`text-xs leading-relaxed ${row.highlight ? "text-white/85" : "text-gray-700"}`}>{row.activities}</p>
               </div>
             ))}
           </div>

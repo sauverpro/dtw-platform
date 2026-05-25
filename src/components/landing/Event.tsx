@@ -2,10 +2,10 @@ import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 
 // ─── Images ──────────────────────────────────────────────
-const eventImage    = "https://images.unsplash.com/photo-1511578314322-379afb476865?q=80&w=800&auto=format&fit=crop";
-const crowdImage    = "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?q=80&w=800&auto=format&fit=crop";
-const investorImage = "https://res.cloudinary.com/dx90htl9t/image/upload/v1778341242/55044140974_3f47551b38_c_ub6clo.jpg";
-const womenTech     = "https://images.unsplash.com/photo-1517457373958-b7bdd4587205?q=80&w=800&auto=format&fit=crop";
+const eventImage    = "https://res.cloudinary.com/dc6iwekzx/image/upload/v1779716264/55044332450_e82cfa26fd_o_tvxql1.jpg";
+const crowdImage    = "https://res.cloudinary.com/dc6iwekzx/image/upload/v1779717447/55044284276_4b82cb6800_k_sc3bbu.jpg";
+const investorImage = "https://res.cloudinary.com/dc6iwekzx/image/upload/v1779717149/55044201863_04b9e1fa39_k_tu7rh7.jpg";
+const womenTech     = "https://res.cloudinary.com/dc6iwekzx/image/upload/v1779716263/55044242463_b7cb6cde6f_o_ewimr7.jpg";
 const p1 = "https://res.cloudinary.com/dx90htl9t/image/upload/v1778341062/53965601226_ac4ca6ae72_c_hiee6v.jpg";
 const p2 = "https://res.cloudinary.com/dx90htl9t/image/upload/v1778341093/54032086233_bd26f3f49a_c_w57q97.jpg";
 const p3 = "https://res.cloudinary.com/dx90htl9t/image/upload/v1778341119/54364971907_eb1dddfef5_c_ocjwo9.jpg";

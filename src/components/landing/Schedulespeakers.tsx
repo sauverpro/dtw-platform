@@ -441,7 +441,7 @@ export default function ScheduleSpeakers() {
           <div className="mt-6 grid sm:grid-cols-2 gap-4">
             <div className="relative rounded-xl overflow-hidden h-40 border border-white/[0.12]">
               <img
-                src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?q=80&w=800&auto=format&fit=crop"
+                src="https://res.cloudinary.com/dc6iwekzx/image/upload/v1779717447/55044284276_4b82cb6800_k_sc3bbu.jpg"
                 className="w-full h-full object-cover brightness-50"
                 alt="Main stage"
               />
@@ -453,7 +453,7 @@ export default function ScheduleSpeakers() {
             </div>
             <div className="relative rounded-xl overflow-hidden h-40 border border-white/[0.12] flex items-center justify-center bg-[#0B0B0B]">
               <img
-                src="https://images.unsplash.com/photo-1511578314322-379afb476865?q=80&w=800&auto=format&fit=crop"
+                src="https://res.cloudinary.com/dc6iwekzx/image/upload/v1779717148/55044486539_64297e5044_k_sup55h.jpg"
                 className="absolute inset-0 w-full h-full object-cover brightness-25"
                 alt="Demo zone"
               />
