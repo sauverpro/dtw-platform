@@ -180,7 +180,7 @@ export default function PreviousDTWs() {
             Previous<br /><span className="text-yellow-400">DTWs</span>
           </h1>
           <p className="text-gray-400 text-sm mt-5 max-w-sm leading-relaxed">
-            Three years of innovation, impact and transformation — shaping Rwanda's digital future one edition at a time.
+            The previous editions of DTW brought together government institutions, innovators, startups, private sector players, development partners, academia, and technology communities to explore opportunities within Rwanda’s rapidly evolving digital landscape. 
           </p>
         </div>
       </section>
@@ -305,7 +305,7 @@ export default function PreviousDTWs() {
         <div className="max-w-7xl mx-auto">
           <div className="relative rounded-2xl overflow-hidden">
             <img
-              src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?q=80&w=1600&auto=format&fit=crop"
+              src="img6.jpg"
               alt="CTA"
               className="absolute inset-0 w-full h-full object-cover"
             />
