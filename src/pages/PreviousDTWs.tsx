@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import Navbar from "../components/landing/Navbar";
 import Footer from "../components/landing/Footer";
 import { events } from "../data/dtwEvents";
+import { getYouTubeEmbedUrl } from "../lib/youtube";
 
 // ── Year selector — handles any number of events ──────────────────────────
 function YearTabs({ active, onChange }: { active: number; onChange: (i: number) => void }) {
@@ -191,7 +192,9 @@ export default function PreviousDTWs() {
       {/* ── EVENT DETAIL ─────────────────────────────────── */}
       <section className="bg-[#0A0A0A] py-20 md:py-28 px-6">
         <div className="max-w-7xl mx-auto">
-          {events.map((event, i) => (
+          {events.map((event, i) => {
+            const videoEmbedUrl = getYouTubeEmbedUrl(event.video);
+            return (
             <div key={event.year} className={i === activeYear ? "block" : "hidden"}>
               <div className="grid lg:grid-cols-[1fr_1.1fr] gap-12 lg:gap-20 items-start">
 
@@ -240,7 +243,20 @@ export default function PreviousDTWs() {
                   <div className="mt-8">
                     <p className="text-white/30 text-[10px] font-bold tracking-[0.18em] uppercase mb-3">Event Highlights</p>
                     <div className="rounded-xl overflow-hidden aspect-video bg-black">
-                      <iframe className="w-full h-full" src={event.video} title={event.title} allowFullScreen />
+                      {videoEmbedUrl ? (
+                        <iframe
+                          className="w-full h-full"
+                          src={videoEmbedUrl}
+                          title={`${event.title} highlights`}
+                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                          referrerPolicy="strict-origin-when-cross-origin"
+                          allowFullScreen
+                        />
+                      ) : (
+                        <div className="w-full h-full flex items-center justify-center text-white/40 text-sm px-6 text-center">
+                          Video unavailable — check the YouTube link in dtwEvents.ts
+                        </div>
+                      )}
                     </div>
                   </div>
 
@@ -257,7 +273,8 @@ export default function PreviousDTWs() {
                 </div>
               </div>
             </div>
-          ))}
+          );
+          })}
         </div>
       </section>
 
