@@ -5,80 +5,108 @@ import { ChevronLeft, ChevronRight, MapPin, Download } from "lucide-react";
 const days = [
   {
     label: "Day 01",
-    date: "May 13, 2026",
-    theme: "Innovation & Foundations",
+    date: "Dec 7, 2026",
+    theme: "Digital Innovation Forum",
     themeDesc:
-      "Setting the stage for Rwanda's digital decade — opening keynotes, ecosystem overviews, and the conversations that frame everything that follows.",
-    location: "Main Hall · Level 1",
-    locationSub: "Kigali Convention Centre",
+      "Northern Province kicks off the provincial tour with a focus on AgriTech, Tourism Tech and SME growth — bringing innovation closer to communities.",
+    location: "Northern Province",
+    locationSub: "Province-Based Engagement",
     accentGlow: "rgba(250,204,21,0.08)",
+    focusArea: "AgriTech, Tourism Tech & SME Growth",
     speakers: [
-      { name: "Ariane Pintest",  role: "Chief AI Officer",     company: "TechCorp Africa",  session: "Opening Keynote",      img: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=600&auto=format&fit=crop" },
-      { name: "John Baptiste",   role: "Director of Policy",   company: "MINICT Rwanda",    session: "Digital Rwanda Vision", img: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=600&auto=format&fit=crop" },
-      { name: "Amara Diallo",    role: "VP of Engineering",    company: "Kigali Tech Hub",  session: "Ecosystem Panel",      img: "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?q=80&w=600&auto=format&fit=crop" },
-      { name: "Samuel Osei",     role: "Founder & CEO",        company: "Pangea Ventures",  session: "Startup Landscape",    img: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=600&auto=format&fit=crop" },
+      { name: "To Be Announced", role: "AgriTech Innovator",   company: "Northern Province",  session: "Tech Demonstrations", img: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=600&auto=format&fit=crop" },
+      { name: "To Be Announced", role: "SME Growth Expert",    company: "Rwanda ICT Chamber", session: "Business Partnerships", img: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=600&auto=format&fit=crop" },
     ],
     schedule: [
-      { time: "8:00 – 10:00 AM",  title: "Registration & Welcome",           type: "info",     desc: "Our team will be on hand to get you set up for the days ahead." },
-      { time: "10:00 – 11:00 AM", title: "Opening Ceremony",                  type: "keynote"   },
-      { time: "11:00 – 12:00 PM", title: "Keynote: Digital Rwanda Vision",    type: "keynote",  speaker: "John Baptiste"  },
-      { time: "12:00 – 2:00 PM",  title: "Networking Lunch",                  type: "break"     },
-      { time: "2:00 – 3:00 PM",   title: "Talk: Africa's AI Frontier",        type: "talk",     speaker: "Ariane Pintest" },
-      { time: "3:00 – 4:00 PM",   title: "Panel: Building the Ecosystem",     type: "panel",    speaker: "Amara Diallo"   },
-      { time: "4:00 – 5:00 PM",   title: "Startup Landscape Overview",        type: "talk",     speaker: "Samuel Osei"    },
-      { time: "5:00 – 6:00 PM",   title: "Q&A & Evening Networking",          type: "break"     },
+      { time: "Morning",    title: "Provincial Dialogue & Opening",           type: "keynote", desc: "Community engagement and digital transformation discussions." },
+      { time: "Mid-Morning", title: "AgriTech & Tourism Tech Demonstrations", type: "talk",    desc: "Live tech demos showcasing innovations relevant to the province." },
+      { time: "Afternoon",  title: "Youth Digital Jobs Sessions",             type: "panel",   desc: "Empowering youth with digital skills and employment pathways." },
+      { time: "Late Afternoon", title: "Business Partnerships Forum",         type: "workshop", desc: "SME networking and partnership-building sessions." },
     ],
   },
   {
     label: "Day 02",
-    date: "May 14, 2026",
-    theme: "Investment & Startups",
+    date: "Dec 8, 2026",
+    theme: "Digital Innovation Forum",
     themeDesc:
-      "Where capital meets innovation — investor roundtables, live pitch competitions, and deep-dives into fintech and venture building across Africa.",
-    location: "Startup Arena · Level 2",
-    locationSub: "Kigali Convention Centre",
+      "Southern Province spotlights EdTech, Creative Economy and SME growth — exploring how education and creativity fuel Rwanda's digital future.",
+    location: "Southern Province",
+    locationSub: "Province-Based Engagement",
     accentGlow: "rgba(96,165,250,0.07)",
+    focusArea: "EdTech, Creative Economy & SME Growth",
     speakers: [
-      { name: "Fatima Al-Rashid", role: "Managing Partner",    company: "Savanna Capital",       session: "Investor Keynote",   img: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=600&auto=format&fit=crop" },
-      { name: "David Mensah",     role: "CEO & Co-founder",    company: "PayStack Africa",        session: "Fintech Deep Dive",  img: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=600&auto=format&fit=crop" },
-      { name: "Priya Sharma",     role: "Head of Ventures",    company: "Google for Startups",    session: "Startup Workshop",   img: "https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=600&auto=format&fit=crop" },
-      { name: "Kwame Asante",     role: "Angel Investor",      company: "Accra Angels",           session: "Pitch Jury",         img: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=600&auto=format&fit=crop" },
+      { name: "To Be Announced", role: "EdTech Leader",         company: "Southern Province",  session: "Education Innovation", img: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=600&auto=format&fit=crop" },
+      { name: "To Be Announced", role: "Creative Economy Expert", company: "Rwanda ICT Chamber", session: "Creative Economy Panel", img: "https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=600&auto=format&fit=crop" },
     ],
     schedule: [
-      { time: "9:00 – 10:00 AM",  title: "Morning Briefing & Coffee",           type: "break"                             },
-      { time: "10:00 – 11:00 AM", title: "Investor Keynote",                     type: "keynote", speaker: "Fatima Al-Rashid" },
-      { time: "11:00 – 12:00 PM", title: "Fintech Deep Dive",                    type: "talk",    speaker: "David Mensah"    },
-      { time: "12:00 – 1:30 PM",  title: "Networking Lunch",                     type: "break"                             },
-      { time: "1:30 – 3:00 PM",   title: "Startup Pitch Competition — Round 1",  type: "panel"                             },
-      { time: "3:00 – 4:00 PM",   title: "Workshop: Building for Scale",         type: "workshop", speaker: "Priya Sharma"  },
-      { time: "4:00 – 6:00 PM",   title: "Investor Roundtable",                  type: "panel",   speaker: "Kwame Asante"   },
-      { time: "7:00 – 10:00 PM",  title: "Gala Dinner",                          type: "break"                             },
+      { time: "Morning",    title: "Provincial Dialogue & Opening",         type: "keynote", desc: "Community engagement focused on education and creative industries." },
+      { time: "Mid-Morning", title: "EdTech Demonstrations",                type: "talk",    desc: "Showcasing digital tools transforming education in Rwanda." },
+      { time: "Afternoon",  title: "Creative Economy Showcase",             type: "panel",   desc: "Celebrating digital creatives and their economic contribution." },
+      { time: "Late Afternoon", title: "Youth Digital Jobs & SME Sessions", type: "workshop", desc: "Connecting SMEs with digital tools and employment opportunities." },
     ],
   },
   {
     label: "Day 03",
-    date: "May 15, 2026",
-    theme: "Policy & Future Tech",
+    date: "Dec 9, 2026",
+    theme: "Digital Trade Forum",
     themeDesc:
-      "Closing with purpose — digital policy, AI governance, awards, and the vision for a connected, innovative Africa over the next decade.",
-    location: "Policy Forum · Level 3",
-    locationSub: "Kigali Convention Centre",
+      "Western Province focuses on Digital Trade and SME growth — unlocking cross-border commerce opportunities and local business digitization.",
+    location: "Western Province",
+    locationSub: "Province-Based Engagement",
     accentGlow: "rgba(52,211,153,0.07)",
+    focusArea: "Digital Trade & SME Growth",
     speakers: [
-      { name: "Minister Claudine", role: "Minister of ICT",    company: "Government of Rwanda", session: "Policy Keynote",      img: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=600&auto=format&fit=crop" },
-      { name: "Tendai Murisa",     role: "Executive Director", company: "TRUST Africa",         session: "Digital Governance",  img: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=600&auto=format&fit=crop" },
-      { name: "Aisha Conteh",      role: "AI Policy Lead",     company: "African Union",         session: "AI Governance Panel", img: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=600&auto=format&fit=crop" },
-      { name: "Nnamdi Okonkwo",    role: "CTO",                company: "Andela",                session: "Future of Work",      img: "https://images.unsplash.com/photo-1463453091185-61582044d556?q=80&w=600&auto=format&fit=crop" },
+      { name: "To Be Announced", role: "Digital Trade Expert",  company: "Western Province",   session: "Trade Forum Keynote",   img: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=600&auto=format&fit=crop" },
+      { name: "To Be Announced", role: "SME Digitization Lead", company: "Rwanda ICT Chamber", session: "SME Digitization Panel", img: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=600&auto=format&fit=crop" },
     ],
     schedule: [
-      { time: "9:00 – 10:00 AM",  title: "Recap & Morning Coffee",                type: "break"                               },
-      { time: "10:00 – 11:00 AM", title: "Policy Keynote: Digital Africa 2030",    type: "keynote",  speaker: "Minister Claudine" },
-      { time: "11:00 – 12:00 PM", title: "Talk: Digital Governance",               type: "talk",     speaker: "Tendai Murisa"     },
-      { time: "12:00 – 1:00 PM",  title: "Networking Lunch",                       type: "break"                               },
-      { time: "1:00 – 2:30 PM",   title: "Panel: AI Governance in Africa",         type: "panel",    speaker: "Aisha Conteh"      },
-      { time: "2:30 – 3:30 PM",   title: "Demo Day: Startups Showcase",            type: "workshop"                            },
-      { time: "3:30 – 4:30 PM",   title: "Future of Work & Tech Talent",           type: "talk",     speaker: "Nnamdi Okonkwo"    },
-      { time: "4:30 – 6:00 PM",   title: "Awards Ceremony & Closing",              type: "keynote"                             },
+      { time: "Morning",    title: "Digital Trade Forum Opening",           type: "keynote", desc: "Dialogue on digital trade opportunities and cross-border commerce." },
+      { time: "Mid-Morning", title: "SME Digitization Demonstrations",      type: "talk",    desc: "Tools and platforms enabling SME growth through digital adoption." },
+      { time: "Afternoon",  title: "Youth Digital Jobs Sessions",           type: "panel",   desc: "Creating pathways to digital employment for Western Province youth." },
+      { time: "Late Afternoon", title: "Business Partnerships Forum",       type: "workshop", desc: "Building trade and investment partnerships across the province." },
+    ],
+  },
+  {
+    label: "Day 04",
+    date: "Dec 10, 2026",
+    theme: "Smart Economy Forum",
+    themeDesc:
+      "Eastern Province explores Smart Agriculture, Logistics and SME Growth — connecting technology with the province's economic strengths.",
+    location: "Eastern Province",
+    locationSub: "Province-Based Engagement",
+    accentGlow: "rgba(168,85,247,0.07)",
+    focusArea: "Smart Agriculture, Logistics & SME Growth",
+    speakers: [
+      { name: "To Be Announced", role: "Smart Agriculture Expert", company: "Eastern Province",  session: "AgriTech Keynote",      img: "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?q=80&w=600&auto=format&fit=crop" },
+      { name: "To Be Announced", role: "Logistics Tech Lead",      company: "Rwanda ICT Chamber", session: "Logistics Innovation",  img: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=600&auto=format&fit=crop" },
+    ],
+    schedule: [
+      { time: "Morning",    title: "Smart Economy Forum Opening",           type: "keynote", desc: "Exploring smart solutions for agriculture and logistics in Eastern Province." },
+      { time: "Mid-Morning", title: "Smart Agriculture Tech Demonstrations", type: "talk",   desc: "Innovative AgriTech tools improving productivity and food security." },
+      { time: "Afternoon",  title: "Logistics & Supply Chain Innovation",   type: "panel",   desc: "Digital solutions transforming logistics and trade corridors." },
+      { time: "Late Afternoon", title: "Youth & SME Growth Sessions",       type: "workshop", desc: "Connecting youth and SMEs with digital tools and opportunities." },
+    ],
+  },
+  {
+    label: "Day 05",
+    date: "Dec 11, 2026",
+    theme: "Digital Business Summit",
+    themeDesc:
+      "The national summit in Kigali brings together stakeholders from across Rwanda and internationally to close the week with policy dialogue, exhibitions and business partnerships.",
+    location: "Kigali",
+    locationSub: "Kigali Convention Centre",
+    accentGlow: "rgba(250,204,21,0.12)",
+    focusArea: "National Summit, Exhibitions & Policy Dialogue",
+    speakers: [
+      { name: "To Be Announced", role: "Minister of ICT",      company: "Government of Rwanda", session: "Summit Keynote",         img: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=600&auto=format&fit=crop" },
+      { name: "To Be Announced", role: "International Partner", company: "Development Partner",  session: "Investment Forum",       img: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=600&auto=format&fit=crop" },
+    ],
+    schedule: [
+      { time: "Morning",    title: "Digital Business Summit Opening",       type: "keynote", desc: "National and international stakeholders convene in Kigali." },
+      { time: "Mid-Morning", title: "Rwanda's Digital Economy — Showcase",  type: "talk",    desc: "Presenting innovations and achievements from the provincial tour." },
+      { time: "Afternoon",  title: "Investment & Partnership Forum",        type: "panel",   desc: "Exploring investment opportunities and business partnerships." },
+      { time: "Mid-Afternoon", title: "Policy Dialogue",                    type: "workshop", desc: "Discussing Rwanda's digital economy policy roadmap." },
+      { time: "Evening",    title: "Exhibitions & Networking Gala",         type: "break",   desc: "Celebrating digital innovation with exhibitions and awards." },
     ],
   },
 ];
@@ -192,12 +220,12 @@ export default function ScheduleSpeakers() {
           <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 mb-10">
             <div>
               <h2 className="text-4xl sm:text-5xl font-black text-white leading-[1.05] tracking-tight">
-                Three Days of
+                Five Days of
                 <br />
                 <span className="text-yellow-400">Innovation</span>
               </h2>
               <p className="text-white/70 text-sm mt-4 leading-relaxed max-w-sm">
-                Each day has a unique theme, dedicated speakers, and a curated programme.
+                Province-based engagements across Rwanda culminating in the Digital Business Summit in Kigali.
               </p>
             </div>
 
@@ -298,15 +326,6 @@ export default function ScheduleSpeakers() {
                     </div>
                   );
                 })}
-              </div>
-
-              {/* footer */}
-              <div className="flex items-center justify-between px-6 py-4 border-t border-white/[0.05]">
-                <button className="flex items-center gap-2 text-yellow-300 hover:text-yellow-300 text-xs font-semibold transition group">
-                  <Download size={12} />
-                  <span className="group-hover:underline underline-offset-2">Download agenda</span>
-                </button>
-                <div />
               </div>
             </div>
 

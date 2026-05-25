@@ -1,12 +1,20 @@
 import { useState, useEffect, useRef } from 'react';
 
+// DTW 2026 opens 7 December 2026, 08:00 CAT (UTC+2)
+const DTW_TARGET = new Date("2026-12-07T08:00:00+02:00");
+
+function getTimeLeft() {
+  const diff = Math.max(0, DTW_TARGET.getTime() - Date.now());
+  return {
+    days:    Math.floor(diff / 86_400_000),
+    hours:   Math.floor((diff % 86_400_000) / 3_600_000),
+    minutes: Math.floor((diff % 3_600_000)  /    60_000),
+    seconds: Math.floor((diff %    60_000)  /     1_000),
+  };
+}
+
 const Hero = () => {
-  const [timeLeft, setTimeLeft] = useState({
-    days: 26,
-    hours: 10,
-    minutes: 4,
-    seconds: 0
-  });
+  const [timeLeft, setTimeLeft] = useState(getTimeLeft);
 
   const [currentSlide, setCurrentSlide] = useState(0);
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -33,16 +41,7 @@ const Hero = () => {
   ];
 
   useEffect(() => {
-    const timer = setInterval(() => {
-      setTimeLeft(prev => {
-        let { days, hours, minutes, seconds } = prev;
-        if (seconds > 0) seconds--;
-        else if (minutes > 0) { minutes--; seconds = 59; }
-        else if (hours > 0) { hours--; minutes = 59; seconds = 59; }
-        else if (days > 0) { days--; hours = 23; minutes = 59; seconds = 59; }
-        return { days, hours, minutes, seconds };
-      });
-    }, 1000);
+    const timer = setInterval(() => setTimeLeft(getTimeLeft()), 1000);
     return () => clearInterval(timer);
   }, []);
 
