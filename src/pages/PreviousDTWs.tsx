@@ -139,7 +139,6 @@ export default function PreviousDTWs() {
   const [activeYear, setActiveYear] = useState(0);
   const navigate = useNavigate();
   const active = events[activeYear];
-  const videoEmbedUrl = getYouTubeEmbedUrl(active.video);
 
   return (
     <div className="bg-white">
@@ -272,7 +271,8 @@ export default function PreviousDTWs() {
                 </div>
               </div>
             </div>
-          ))}
+          );
+          })}
         </div>
       </section>
 
