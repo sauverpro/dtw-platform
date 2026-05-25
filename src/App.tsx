@@ -6,6 +6,7 @@ import PartnersPage from "./pages/PartnersPage";
 import PreviousDTWs from "./pages/PreviousDTWs";
 import EventGalleryPage from "./pages/EventGalleryPage";
 import ContactPage from "./pages/ContactPage";
+import RegisterPage from "./pages/RegisterPage";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
       <ScrollToTop />
       <Routes>
         <Route path="/" element={<LandingPage />} />
+        <Route path="/register" element={<RegisterPage />} />
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/partners" element={<PartnersPage />} />
         <Route path="/dbs" element={<DBSPage />} />

@@ -13,12 +13,20 @@ const links = [
   { label: "Contact", to: "/contact" },
 ];
 
-const Navbar = () => {
+type NavbarProps = {
+  /** Use on light-background pages so links stay readable at the top */
+  variant?: "dark" | "light";
+};
+
+const Navbar = ({ variant = "dark" }: NavbarProps) => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const isLight = variant === "light";
+  const solidNav = scrolled || isLight;
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
+    onScroll();
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
@@ -26,7 +34,7 @@ const Navbar = () => {
   return (
     <nav
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${
-        scrolled
+        solidNav
           ? "bg-white/90 backdrop-blur-md border-b border-gray-100 shadow-sm py-3 md:py-4"
           : "bg-transparent py-5 md:py-6"
       }`}
@@ -53,8 +61,8 @@ const Navbar = () => {
                 className={({ isActive }) =>
                   `text-sm font-medium hover:text-yellow-500 transition-colors duration-200 ${
                     isActive
-                      ? "text-yellow-400"
-                      : scrolled
+                      ? "text-yellow-500"
+                      : solidNav
                         ? "text-gray-700"
                         : "text-white/80"
                   }`
@@ -67,7 +75,17 @@ const Navbar = () => {
         </ul>
 
         {/* RIGHT SIDE — DESKTOP */}
-        <div className="hidden md:flex items-center gap-4">
+        <div className="hidden md:flex items-center gap-3">
+          <Link
+            to="/register"
+            className={`px-5 py-2.5 rounded-md text-sm font-bold border transition duration-300 ${
+              solidNav
+                ? "border-gray-200 text-gray-800 hover:border-yellow-400 hover:text-yellow-600"
+                : "border-white/30 text-white hover:border-yellow-400 hover:text-yellow-400"
+            }`}
+          >
+            Register
+          </Link>
           <a
             href={SPONSOR_URL}
             target="_blank"
@@ -78,14 +96,18 @@ const Navbar = () => {
           </a>
         </div>
 
-        {/* MOBILE: Get Tickets + Hamburger */}
+        {/* MOBILE: Register + Hamburger */}
         <div className="flex items-center gap-3 md:hidden">
-          <button className="bg-yellow-400 text-black px-4 py-2 rounded-lg text-xs font-bold">
-            Tickets
-          </button>
+          <Link
+            to="/register"
+            onClick={() => setMobileOpen(false)}
+            className="bg-yellow-400 text-black px-4 py-2 rounded-lg text-xs font-bold"
+          >
+            Register
+          </Link>
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
-            className={`transition-colors ${scrolled ? "text-black" : "text-white"}`}
+            className={`transition-colors ${solidNav ? "text-black" : "text-white"}`}
           >
             {mobileOpen ? <X size={22} /> : <Menu size={22} />}
           </button>
@@ -111,10 +133,22 @@ const Navbar = () => {
             </NavLink>
           ))}
           <div className="pt-4 flex flex-col gap-3">
-            <button className="text-sm font-medium text-gray-500 text-left py-1">Sign in</button>
-            <button className="bg-yellow-400 text-black px-5 py-3 rounded-xl text-sm font-bold w-full">
-              Get Tickets →
-            </button>
+            <Link
+              to="/register"
+              onClick={() => setMobileOpen(false)}
+              className="bg-yellow-400 text-black px-5 py-3 rounded-xl text-sm font-bold w-full text-center"
+            >
+              Register →
+            </Link>
+            <a
+              href={SPONSOR_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => setMobileOpen(false)}
+              className="border border-gray-200 text-gray-800 px-5 py-3 rounded-xl text-sm font-bold w-full text-center hover:border-yellow-400 transition"
+            >
+              Sponsor Us
+            </a>
           </div>
         </div>
       )}

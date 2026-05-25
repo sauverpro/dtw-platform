@@ -26,7 +26,7 @@ const Footer = () => {
     { label: "About" },
     { label: "Schedule" },
     { label: "Speakers" },
-    { label: "Tickets" },
+    { label: "Register", to: "/register" },
     { label: "Contact", to: "/contact" },
   ];
   const socials: { href: string; label: string; Icon: typeof SocialIconX }[] = [

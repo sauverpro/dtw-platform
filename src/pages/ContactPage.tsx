@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { MapPin, Mail, Phone, Clock, Send, ChevronDown } from "lucide-react";
 import Navbar from "../components/landing/Navbar";
 import Footer from "../components/landing/Footer";
@@ -413,9 +414,12 @@ export default function ContactPage() {
                 Ready to be part of Africa's most impactful digital conference?
               </p>
               <div className="flex gap-3 shrink-0">
-                <button className="bg-yellow-400 text-black font-bold px-6 py-2.5 rounded-lg hover:bg-yellow-300 transition text-sm">
-                  Book Now
-                </button>
+                <Link
+                  to="/register"
+                  className="bg-yellow-400 text-black font-bold px-6 py-2.5 rounded-lg hover:bg-yellow-300 transition text-sm"
+                >
+                  Register Now
+                </Link>
                 <button className="border border-white/15 text-white font-medium px-6 py-2.5 rounded-lg hover:border-white/30 transition text-sm">
                   Learn More
                 </button>
