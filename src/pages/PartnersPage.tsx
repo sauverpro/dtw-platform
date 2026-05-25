@@ -1,3 +1,5 @@
+import { useState } from "react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import Navbar from "../components/landing/Navbar";
 import Footer from "../components/landing/Footer";
@@ -70,6 +72,11 @@ const testimonials = [
 ];
 
 const PartnersPage = () => {
+  const [catIdx, setCatIdx] = useState(0);
+  const prev = () => setCatIdx((i) => (i - 1 + partnerCategories.length) % partnerCategories.length);
+  const next = () => setCatIdx((i) => (i + 1) % partnerCategories.length);
+  const active = partnerCategories[catIdx];
+
   return (
     <div className="bg-[#080808] overflow-hidden">
       <Navbar />
@@ -77,7 +84,7 @@ const PartnersPage = () => {
       {/* ── HERO ─────────────────────────────────────────── */}
       <section className="relative min-h-screen flex items-end px-6 pb-20 pt-40">
         <img
-          src="https://images.unsplash.com/photo-1511578314322-379afb476865?q=80&w=1600&auto=format&fit=crop"
+          src="https://res.cloudinary.com/dc6iwekzx/image/upload/v1779716247/55044485734_af5bbe1d46_o_n4eacp.jpg"
           alt="Partners Hero"
           className="absolute inset-0 w-full h-full object-cover"
         />
@@ -131,7 +138,7 @@ const PartnersPage = () => {
         </div>
       </section>
 
-      {/* ── PARTNER CATEGORIES ────────────────────────────── */}
+      {/* ── PARTNER CATEGORIES CAROUSEL ───────────────────── */}
       <section className="bg-[#F9F8F6] py-20 md:py-28 px-6">
         <div className="max-w-7xl mx-auto">
 
@@ -149,24 +156,63 @@ const PartnersPage = () => {
             </p>
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-5">
-            {partnerCategories.map((group, i) => (
-              <div key={i} className="bg-white rounded-2xl p-7 border border-gray-100">
-                <p className="text-[11px] font-bold tracking-[0.18em] uppercase text-gray-400 mb-6">
-                  {group.category}
+          {/* Carousel */}
+          <div className="relative flex items-center gap-4">
+            {/* Prev arrow */}
+            <button
+              onClick={prev}
+              className="shrink-0 w-10 h-10 rounded-full border border-black/10 flex items-center justify-center text-black/40 hover:border-yellow-400 hover:text-yellow-500 transition duration-200 bg-white"
+              aria-label="Previous category"
+            >
+              <ChevronLeft size={18} />
+            </button>
+
+            {/* Card */}
+            <div className="flex-1 bg-white rounded-2xl p-8 md:p-10 border border-gray-100 min-h-[260px]">
+              {/* Category label + dots */}
+              <div className="flex items-center justify-between mb-8">
+                <p className="text-[11px] font-bold tracking-[0.2em] uppercase text-yellow-500">
+                  {active.category}
                 </p>
-                <div className="grid grid-cols-2 gap-3">
-                  {group.logos.map((logo, j) => (
-                    <div
-                      key={j}
-                      className="bg-[#F9F8F6] rounded-xl flex items-center justify-center py-5 hover:bg-yellow-50 transition duration-200 border border-gray-100/0 hover:border-yellow-400/20"
-                    >
-                      <p className="text-sm font-bold text-gray-600">{logo}</p>
-                    </div>
+                <div className="flex gap-1.5">
+                  {partnerCategories.map((_, i) => (
+                    <button
+                      key={i}
+                      onClick={() => setCatIdx(i)}
+                      className={`rounded-full transition-all duration-300 ${
+                        i === catIdx ? "w-5 h-1.5 bg-yellow-400" : "w-1.5 h-1.5 bg-black/15 hover:bg-black/30"
+                      }`}
+                      aria-label={partnerCategories[i].category}
+                    />
                   ))}
                 </div>
               </div>
-            ))}
+
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+                {active.logos.map((logo, j) => (
+                  <div
+                    key={j}
+                    className="bg-[#F9F8F6] rounded-xl flex items-center justify-center py-7 hover:bg-yellow-50 transition duration-200 border border-transparent hover:border-yellow-400/20"
+                  >
+                    <p className="text-sm font-bold text-gray-600 text-center px-2">{logo}</p>
+                  </div>
+                ))}
+              </div>
+
+              {/* counter */}
+              <p className="text-right text-[11px] text-gray-400 mt-6 tabular-nums">
+                {catIdx + 1} / {partnerCategories.length}
+              </p>
+            </div>
+
+            {/* Next arrow */}
+            <button
+              onClick={next}
+              className="shrink-0 w-10 h-10 rounded-full border border-black/10 flex items-center justify-center text-black/40 hover:border-yellow-400 hover:text-yellow-500 transition duration-200 bg-white"
+              aria-label="Next category"
+            >
+              <ChevronRight size={18} />
+            </button>
           </div>
         </div>
       </section>
@@ -267,7 +313,7 @@ const PartnersPage = () => {
       {/* ── FINAL CTA ─────────────────────────────────────── */}
       <section className="relative py-32 px-6 overflow-hidden">
         <img
-          src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=1600&auto=format&fit=crop"
+          src="https://res.cloudinary.com/dc6iwekzx/image/upload/v1779716658/55044076813_12631b4e56_k_gdsqiz.jpg"
           alt="Partner CTA"
           className="absolute inset-0 w-full h-full object-cover"
         />
