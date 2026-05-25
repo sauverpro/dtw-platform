@@ -192,7 +192,9 @@ export default function PreviousDTWs() {
       {/* ── EVENT DETAIL ─────────────────────────────────── */}
       <section className="bg-[#0A0A0A] py-20 md:py-28 px-6">
         <div className="max-w-7xl mx-auto">
-          {events.map((event, i) => (
+          {events.map((event, i) => {
+            const videoEmbedUrl = getYouTubeEmbedUrl(event.video);
+            return (
             <div key={event.year} className={i === activeYear ? "block" : "hidden"}>
               <div className="grid lg:grid-cols-[1fr_1.1fr] gap-12 lg:gap-20 items-start">
 
