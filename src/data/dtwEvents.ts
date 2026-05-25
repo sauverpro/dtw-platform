@@ -6,7 +6,7 @@ export const events = [
     title: "Digital Transformation Week 2023",
     tagline: "Where Rwanda's digital journey began.",
     image: "https://res.cloudinary.com/dx90htl9t/image/upload/v1779718121/55044140884_f35c5d8895_o_xhuiuy.jpg",
-    video: "https://youtu.be/VMZkKEApMlE",
+    video: "https://www.youtube.com/embed/VMZkKEApMlE",
     description:
       "DTW 2023 accelerated Rwanda's digital economy through innovation, youth empowerment and entrepreneurship — bringing together the country's brightest minds for three transformative days.",
     stats: [
@@ -35,7 +35,7 @@ export const events = [
     title: "Digital Transformation Week 2024",
     tagline: "AI, fintech and smart cities take centre stage.",
     image: "https://res.cloudinary.com/dx90htl9t/image/upload/v1779718137/55044485709_c18d81676d_o_vlxu8y.jpg",
-    video: "https://youtu.be/VMZkKEApMlE",
+    video: "https://www.youtube.com/embed/VMZkKEApMlE",
     description:
       "DTW 2024 deepened Africa's technology ecosystem with groundbreaking sessions on AI, fintech, cybersecurity and smart city innovation — drawing international attention to Kigali's growing tech scene.",
     stats: [
@@ -64,7 +64,7 @@ export const events = [
     title: "Digital Transformation Week 2025",
     tagline: "Rwanda as Africa's definitive digital hub.",
     image: "https://res.cloudinary.com/dx90htl9t/image/upload/v1779718121/55044140884_f35c5d8895_o_xhuiuy.jpg",
-    video: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    video: "https://www.youtube.com/embed/VMZkKEApMlE",
     description:
       "DTW 2025 cemented Kigali's position as Africa's leading technology conference destination — with record attendance, a landmark startup pitch competition and a packed programme of AI-focused sessions.",
     stats: [
