@@ -1,8 +1,7 @@
-const partners = [
-  { name: "RISA", src: "https://upload.wikimedia.org/wikipedia/commons/6/65/RISA_logo.png" },
-  { name: "Digital Africa", src: "https://upload.wikimedia.org/wikipedia/commons/4/4e/Digital_Africa_logo.png" },
-  { name: "Access to Finance Rwanda", src: "https://upload.wikimedia.org/wikipedia/commons/0/08/Access_to_Finance_Rwanda_logo.png" },
-  { name: "Mastercard", src: "https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg" },
+const organizers = [
+  { name: "MINICT",      src: "https://res.cloudinary.com/dc6iwekzx/image/upload/v1779714063/MINICT-1_lqfvda.png" },
+  { name: "RISA",        src: "https://res.cloudinary.com/dc6iwekzx/image/upload/v1779714062/logo_wwqlfr.png" },
+  { name: "ICT Chamber", src: "https://res.cloudinary.com/dc6iwekzx/image/upload/v1778836285/logo_1945919583_1_lwuwo3.png" },
 ];
 
 const TicketsPartners = () => {
@@ -13,7 +12,7 @@ const TicketsPartners = () => {
         {/* TICKET BANNER */}
         <div className="relative rounded-2xl overflow-hidden h-[340px] md:h-[420px]">
           <img
-            src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?q=80&w=1400&auto=format&fit=crop"
+            src="https://res.cloudinary.com/dc6iwekzx/image/upload/v1779717447/55044284276_4b82cb6800_k_sc3bbu.jpg"
             className="w-full h-full object-cover"
             alt="Conference crowd"
           />
@@ -21,12 +20,6 @@ const TicketsPartners = () => {
 
           <div className="absolute inset-0 flex items-center px-8 sm:px-12 md:px-14">
             <div className="max-w-md">
-              <div className="flex items-center gap-3 mb-5">
-                <span className="bg-red-500 text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider">
-                  20% Off
-                </span>
-                <span className="text-white/60 text-xs">Limited time offer</span>
-              </div>
 
               <h2 className="text-white text-4xl sm:text-5xl font-black leading-tight tracking-tight">
                 Get Your<br />Tickets
@@ -48,33 +41,38 @@ const TicketsPartners = () => {
           </div>
         </div>
 
-        {/* PARTNERS */}
+        {/* ORGANIZERS */}
         <div className="mt-16 md:mt-20">
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-5 mb-10">
-            <div>
-              <div className="flex items-center gap-3 mb-4">
-                <div className="h-px w-8 bg-yellow-400 shrink-0" />
-                <p className="text-yellow-500 uppercase tracking-[0.2em] text-xs font-semibold">Partners</p>
-              </div>
-              <h2 className="text-4xl font-black text-black tracking-tight">Our Partners</h2>
-            </div>
-            <button className="self-start sm:self-auto text-sm font-medium text-gray-400 hover:text-black transition border border-gray-200 px-5 py-2.5 rounded-lg">
-              Become a partner →
-            </button>
+          <div className="flex items-center gap-3 mb-8">
+            <div className="h-px w-8 bg-yellow-400 shrink-0" />
+            <p className="text-yellow-500 uppercase tracking-[0.2em] text-xs font-semibold">Organizers</p>
           </div>
+          <h2 className="text-3xl sm:text-4xl font-black text-black tracking-tight mb-10">
+            Organized By
+          </h2>
 
-          {/* LOGO GRID */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-            {partners.map((p) => (
+          {/* LOGO GRID — 3 equal cards */}
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            {organizers.map((o) => (
               <div
-                key={p.name}
-                className="border border-gray-100 rounded-xl flex items-center justify-center p-7 md:p-9 hover:border-yellow-400/50 transition duration-300 group"
+                key={o.name}
+                className="border border-gray-100 rounded-2xl flex flex-col items-center justify-center gap-4 py-10 px-8 hover:border-yellow-400/50 hover:shadow-sm transition duration-300 group"
               >
-                <img
-                  src={p.src}
-                  alt={p.name}
-                  className="h-8 md:h-10 object-contain grayscale group-hover:grayscale-0 transition duration-300"
-                />
+                {o.src ? (
+                  <img
+                    src={o.src}
+                    alt={o.name}
+                    className="h-12 md:h-14 object-contain grayscale group-hover:grayscale-0 transition duration-300"
+                  />
+                ) : (
+                  /* Placeholder shown until logo is provided */
+                  <div className="h-12 w-40 rounded-lg bg-gray-100 flex items-center justify-center">
+                    <span className="text-gray-400 text-xs font-semibold tracking-wide">{o.name}</span>
+                  </div>
+                )}
+                <p className="text-gray-400 text-xs font-semibold tracking-widest uppercase group-hover:text-yellow-500 transition duration-300">
+                  {o.name}
+                </p>
               </div>
             ))}
           </div>

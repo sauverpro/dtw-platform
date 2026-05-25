@@ -1,12 +1,23 @@
 import { useState, useEffect, useRef } from 'react';
+import img1 from '../../assets/img1.jpg';
+import img6 from '../../assets/img 6.jpg';
+import img10 from '../../assets/img10.jpg';
+
+// DTW 2026 opens 7 December 2026, 08:00 CAT (UTC+2)
+const DTW_TARGET = new Date("2026-12-07T08:00:00+02:00");
+
+function getTimeLeft() {
+  const diff = Math.max(0, DTW_TARGET.getTime() - Date.now());
+  return {
+    days:    Math.floor(diff / 86_400_000),
+    hours:   Math.floor((diff % 86_400_000) / 3_600_000),
+    minutes: Math.floor((diff % 3_600_000)  /    60_000),
+    seconds: Math.floor((diff %    60_000)  /     1_000),
+  };
+}
 
 const Hero = () => {
-  const [timeLeft, setTimeLeft] = useState({
-    days: 26,
-    hours: 10,
-    minutes: 4,
-    seconds: 0
-  });
+  const [timeLeft, setTimeLeft] = useState(getTimeLeft);
 
   const [currentSlide, setCurrentSlide] = useState(0);
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -16,33 +27,24 @@ const Hero = () => {
       id: 1,
       title: "Events",
       subtitle: "Live Talks & Workshops",
-      image: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?q=80&w=1200&auto=format&fit=crop",
+      image: img10,
     },
     {
       id: 2,
       title: "DTW 2026",
       subtitle: "Digital Transformation Week",
-      image: "https://images.unsplash.com/photo-1511578314322-379afb476865?q=80&w=1200&auto=format&fit=crop",
+      image: img6,
     },
     {
       id: 3,
       title: "DBS",
       subtitle: "Digital Business Summit",
-      image: "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?q=80&w=1200&auto=format&fit=crop",
+      image: img1,
     }
   ];
 
   useEffect(() => {
-    const timer = setInterval(() => {
-      setTimeLeft(prev => {
-        let { days, hours, minutes, seconds } = prev;
-        if (seconds > 0) seconds--;
-        else if (minutes > 0) { minutes--; seconds = 59; }
-        else if (hours > 0) { hours--; minutes = 59; seconds = 59; }
-        else if (days > 0) { days--; hours = 23; minutes = 59; seconds = 59; }
-        return { days, hours, minutes, seconds };
-      });
-    }, 1000);
+    const timer = setInterval(() => setTimeLeft(getTimeLeft()), 1000);
     return () => clearInterval(timer);
   }, []);
 
@@ -92,12 +94,12 @@ const Hero = () => {
                 <p className="text-white/50 text-xs font-semibold tracking-[0.2em] uppercase mb-4">
                   Kigali, Rwanda · May 13–15, 2026
                 </p>
-                <h1 className="text-5xl sm:text-5xl lg:text-6xl font-black leading-[1.0] text-white tracking-tight">
+                <h1 className="text-4xl sm:text-4xl lg:text-5xl font-black leading-[1.0] text-white tracking-tight">
                   DIGITAL
                   <br />
-                  TRANSFORM
-                  <br />
-                  ATION
+                  TRANSFORMATION
+        
+                  
                   <br />
                   <span className="text-yellow-400">WEEK</span>
                 </h1>
@@ -109,7 +111,7 @@ const Hero = () => {
 
               <div className="flex items-center gap-3">
                 <button className="px-6 py-3 rounded-lg bg-yellow-400 text-black font-bold text-sm hover:bg-yellow-300 transition-all duration-200">
-                  Get Tickets
+                  Get your Seats
                 </button>
                 <button className="px-6 py-3 rounded-lg border border-white/20 text-white font-medium text-sm hover:border-white/40 transition-all duration-200">
                   Learn More

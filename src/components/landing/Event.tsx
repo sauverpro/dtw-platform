@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { Link } from "react-router-dom";
 
 // ─── Images ──────────────────────────────────────────────
 const eventImage    = "https://images.unsplash.com/photo-1511578314322-379afb476865?q=80&w=800&auto=format&fit=crop";
@@ -49,14 +50,15 @@ function EventCard({ title, image, date, location, slotsLeft }: EventCardProps) 
           <p className="text-gray-600 text-[11px] mt-0.5">{location}</p>
         </div>
 
-        <button
+        <Link
+          to="/register"
           aria-label={`Register for ${title}`}
           className="flex-shrink-0 mt-1 w-7 h-7 rounded-full border border-white/10 flex items-center justify-center text-white/30 group-hover:border-yellow-400/50 group-hover:text-yellow-400 transition-all duration-300"
         >
           <svg width="11" height="11" viewBox="0 0 12 12" fill="none">
             <path d="M2 10L10 2M10 2H4M10 2V8" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
           </svg>
-        </button>
+        </Link>
       </div>
 
       <div className="mt-3 h-px bg-white/[0.05] group-hover:bg-yellow-400/15 transition-colors duration-300" />
