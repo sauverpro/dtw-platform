@@ -27,19 +27,19 @@ const Hero = () => {
       id: 1,
       title: "Events",
       subtitle: "Live Talks & Workshops",
-      image: img10,
+      image: 'https://res.cloudinary.com/dx90htl9t/image/upload/v1779965440/55044235905_ec5ffec11d_o_nodenq.jpg',
     },
     {
       id: 2,
       title: "DTW 2026",
       subtitle: "Digital Transformation Week",
-      image: img6,
+      image: 'https://res.cloudinary.com/dx90htl9t/image/upload/v1779965455/54987738236_780b2bd2d5_o_ktju7q.jpg',
     },
     {
       id: 3,
       title: "DBS",
       subtitle: "Digital Business Summit",
-      image: img1,
+      image: 'https://res.cloudinary.com/dx90htl9t/image/upload/v1779965424/55044284276_8c5e180509_o_2_rqk7hn.jpg',
     }
   ];
 

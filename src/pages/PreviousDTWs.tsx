@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Navbar from "../components/landing/Navbar";
 import Footer from "../components/landing/Footer";
 import { events } from "../data/dtwEvents";
@@ -341,12 +341,12 @@ export default function PreviousDTWs() {
                 </p>
               </div>
               <div className="shrink-0 flex flex-col gap-3">
-                <button className="bg-yellow-400 text-black font-bold px-8 py-3 rounded-lg hover:bg-yellow-300 transition duration-200 text-sm whitespace-nowrap">
+                <Link to="/register" className="bg-yellow-400 text-black font-bold px-8 py-3 rounded-lg hover:bg-yellow-300 transition duration-200 text-sm whitespace-nowrap">
                   Register for DTW 2026
-                </button>
-                <button className="border border-white/15 text-white font-medium px-8 py-3 rounded-lg hover:border-white/30 transition duration-200 text-sm whitespace-nowrap">
+                </Link>
+                {/* <button className="border border-white/15 text-white font-medium px-8 py-3 rounded-lg hover:border-white/30 transition duration-200 text-sm whitespace-nowrap">
                   View Programme
-                </button>
+                </button> */}
               </div>
             </div>
           </div>
