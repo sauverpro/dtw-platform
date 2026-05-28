@@ -320,13 +320,15 @@ export default function ContactPage() {
               <p className="text-white/30 text-[10px] font-bold tracking-[0.2em] uppercase mb-5">Follow DTW 2026</p>
               <div className="space-y-3">
                 {[
-                  { platform: "X (Twitter)", handle: "@DTW_Rwanda", color: "bg-white/5", href: "#" },
-                  { platform: "LinkedIn",    handle: "DTW Rwanda",  color: "bg-white/5", href: "#" },
-                  { platform: "Instagram",   handle: "@dtw_rwanda", color: "bg-white/5", href: "#" },
+                  { platform: "X (Twitter)", handle: "@rwictchamber", color: "bg-white/5", href: "https://x.com/rwictchamber" },
+                  { platform: "LinkedIn", handle: "Rwanda ICT Chamber", color: "bg-white/5", href: "https://www.linkedin.com/company/rwanda-ict-chamber" },
+                  { platform: "Instagram", handle: "@rwictchamber250", color: "bg-white/5", href: "https://www.instagram.com/rwictchamber250/" },
                 ].map((s) => (
                   <a
                     key={s.platform}
                     href={s.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="flex items-center justify-between py-3 px-4 rounded-xl bg-white/[0.03] border border-white/[0.05] hover:border-yellow-400/25 hover:bg-white/[0.06] transition duration-200 group"
                   >
                     <div>
