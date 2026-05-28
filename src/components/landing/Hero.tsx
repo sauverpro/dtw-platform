@@ -1,7 +1,4 @@
 import { useState, useEffect, useRef } from 'react';
-import img1 from '../../assets/img1.jpg';
-import img6 from '../../assets/img 6.jpg';
-import img10 from '../../assets/img10.jpg';
 
 // DTW 2026 opens 7 December 2026, 08:00 CAT (UTC+2)
 const DTW_TARGET = new Date("2026-12-07T08:00:00+02:00");
