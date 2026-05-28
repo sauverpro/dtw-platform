@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Loader2, Send } from "lucide-react";
+import { Loader2, Send, MapPin, CalendarDays, Tag } from "lucide-react";
 import Navbar from "../components/landing/Navbar";
 import Footer from "../components/landing/Footer";
 import { REGISTRATION_EVENTS } from "../constants/registrationEvents";
@@ -38,12 +38,12 @@ export default function RegisterPage() {
     (e: React.ChangeEvent<HTMLInputElement>) =>
       setForm((p) => ({ ...p, [k]: e.target.value }));
 
-  const toggleEvent = (event: string) => {
+  const toggleEvent = (eventId: string) => {
     setForm((p) => ({
       ...p,
-      events: p.events.includes(event)
-        ? p.events.filter((e) => e !== event)
-        : [...p.events, event],
+      events: p.events.includes(eventId)
+        ? p.events.filter((e) => e !== eventId)
+        : [...p.events, eventId],
     }));
   };
 
@@ -108,7 +108,7 @@ export default function RegisterPage() {
 
       <section className="px-6 py-12 pb-24">
         <div className="max-w-3xl mx-auto">
-          <div className="bg-white border border-gray-200 rounded-2xl p-8 md:p-10 shadow-sm">
+          <div className="bg-white border border-gray-200 rounded-xl p-8 md:p-10 shadow-sm">
             {!submitted ? (
               <>
                 <div className="flex items-center gap-3 mb-8">
@@ -192,31 +192,47 @@ export default function RegisterPage() {
                     <p className="text-gray-400 text-xs mb-3">
                       Select one or more events
                     </p>
-                    <div className="space-y-2">
-                      {REGISTRATION_EVENTS.map((event) => {
-                        const checked = form.events.includes(event);
+                    <div className="space-y-3">
+                      {REGISTRATION_EVENTS.map((ev) => {
+                        const checked = form.events.includes(ev.id);
+                        const isHighlight = "highlight" in ev && ev.highlight;
                         return (
                           <label
-                            key={event}
-                            className={`flex items-start gap-3 p-4 rounded-lg border cursor-pointer transition duration-200 ${
+                            key={ev.id}
+                            className={`flex items-start gap-4 p-5 rounded-xl border cursor-pointer transition duration-200 ${
                               checked
                                 ? "border-yellow-400 bg-yellow-50"
-                                : "border-gray-200 bg-gray-50/50 hover:border-gray-300 hover:bg-gray-50"
+                                : "border-gray-200 bg-white hover:border-yellow-300 hover:bg-yellow-50/40"
                             }`}
                           >
                             <input
                               type="checkbox"
                               checked={checked}
-                              onChange={() => toggleEvent(event)}
-                              className="mt-0.5 w-4 h-4 rounded border-gray-300 accent-yellow-400 shrink-0"
+                              onChange={() => toggleEvent(ev.id)}
+                              className="mt-1 w-4 h-4 rounded border-gray-300 accent-yellow-400 shrink-0"
                             />
-                            <span
-                              className={`text-sm leading-snug ${
-                                checked ? "text-gray-900 font-medium" : "text-gray-700"
-                              }`}
-                            >
-                              {event}
-                            </span>
+                            <div className="flex-1 min-w-0">
+                              <p className="text-sm font-bold leading-snug text-gray-900">
+                                {ev.title}
+                              </p>
+                              <div className="flex flex-wrap gap-x-4 gap-y-1 mt-2">
+                                <span className="flex items-center gap-1.5 text-xs text-gray-500">
+                                  <CalendarDays size={11} className="text-yellow-500" />
+                                  {ev.date}
+                                </span>
+                                <span className="flex items-center gap-1.5 text-xs text-gray-500">
+                                  <MapPin size={11} className="text-yellow-500" />
+                                  {ev.location}
+                                </span>
+                              </div>
+                              <span className="inline-flex items-center gap-1.5 mt-2 text-[11px] font-semibold px-2.5 py-1 rounded-full bg-yellow-50 text-yellow-700">
+                                <Tag size={9} />
+                                {ev.focus}
+                              </span>
+                              <p className="mt-2 text-xs leading-relaxed text-gray-500">
+                                {ev.activities}
+                              </p>
+                            </div>
                           </label>
                         );
                       })}
@@ -280,14 +296,15 @@ export default function RegisterPage() {
                   <span className="text-yellow-600 font-semibold">{form.email}</span>.
                 </p>
                 <ul className="mt-6 text-left w-full max-w-sm space-y-2">
-                  {form.events.map((e) => (
-                    <li
-                      key={e}
-                      className="text-gray-700 text-xs px-4 py-2 rounded-lg bg-gray-50 border border-gray-200"
-                    >
-                      {e}
-                    </li>
-                  ))}
+                  {form.events.map((id) => {
+                    const ev = REGISTRATION_EVENTS.find((e) => e.id === id);
+                    return (
+                      <li key={id} className="text-gray-700 text-xs px-4 py-2.5 rounded-lg bg-gray-50 border border-gray-200">
+                        <p className="font-semibold text-gray-900">{ev?.title ?? id}</p>
+                        {ev && <p className="text-gray-500 mt-0.5">{ev.date} · {ev.location}</p>}
+                      </li>
+                    );
+                  })}
                 </ul>
                 <button
                   onClick={() => {

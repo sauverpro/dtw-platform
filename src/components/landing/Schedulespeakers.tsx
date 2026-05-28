@@ -294,7 +294,7 @@ export default function ScheduleSpeakers() {
                   <div className="h-px w-6 bg-yellow-400" />
                   <p className="text-white/70 text-[11px] font-bold tracking-[0.2em] uppercase">Programme</p>
                 </div>
-                <span className="text-white/60 text-[11px]">{day.schedule.length} sessions · {day.date}</span>
+                <span className="text-white/75 text-[11px]">{day.schedule.length} sessions · {day.date}</span>
               </div>
 
               {/* rows */}
@@ -306,20 +306,20 @@ export default function ScheduleSpeakers() {
                       className="group grid grid-cols-[100px_1fr] sm:grid-cols-[130px_1fr] gap-4 items-start px-6 py-4 hover:bg-white/[0.025] transition duration-150"
                     >
                       {/* time */}
-                      <p className="text-white/65 text-[11px] tabular-nums leading-snug pt-0.5">{item.time}</p>
+                      <p className="text-white/80 text-[11px] tabular-nums leading-snug pt-0.5">{item.time}</p>
 
                       {/* title */}
                       <div>
-                        <p className="text-white/70 text-sm font-semibold group-hover:text-white transition duration-150 leading-snug">
+                        <p className="text-white text-sm font-semibold group-hover:text-yellow-300 transition duration-150 leading-snug">
                           {item.title}
                         </p>
                         {(item as any).speaker && (
-                          <p className="text-white/65 text-[11px] mt-1">
+                          <p className="text-white/75 text-[11px] mt-1">
                             <span className="mr-1 text-white/50">↳</span>{(item as any).speaker}
                           </p>
                         )}
                         {(item as any).desc && (
-                          <p className="text-white/60 text-[11px] mt-1 leading-relaxed">{(item as any).desc}</p>
+                          <p className="text-white/75 text-[11px] mt-1 leading-relaxed">{(item as any).desc}</p>
                         )}
                       </div>
 

@@ -7,19 +7,39 @@ import Footer from "../components/landing/Footer";
 const partnerCategories = [
   {
     category: "Organizing Partners",
-    logos: ["RISA", "ICT Chamber", "MINICT", "RDB"],
+    logos: [
+      { name: "RISA",        src: "https://res.cloudinary.com/dc6iwekzx/image/upload/v1779965851/logo_nv79th.png" },
+      { name: "ICT Chamber", src: "https://res.cloudinary.com/dc6iwekzx/image/upload/v1778836285/logo_1945919583_1_lwuwo3.png" },
+      { name: "MINICT",      src: "https://res.cloudinary.com/dc6iwekzx/image/upload/v1779965853/MINICT-1_q6fqym.png" },
+      { name: "RDB",         src: "https://res.cloudinary.com/dc6iwekzx/image/upload/v1779965853/rdb1_lhq4aq.png" },
+    ],
   },
   {
     category: "Strategic Partners",
-    logos: ["MTN", "Airtel", "Mastercard", "Digital Africa"],
+    logos: [
+      { name: "MTN",           src: "https://res.cloudinary.com/dc6iwekzx/image/upload/v1779965853/mtn-vector-logo-free-download-11574079006iyxmpcd4fu_rti3ix.png" },
+      { name: "Airtel",        src: "https://res.cloudinary.com/dc6iwekzx/image/upload/v1779965851/Airtel-logo_yyw7ow.png" },
+      { name: "Mastercard",    src: "https://res.cloudinary.com/dc6iwekzx/image/upload/v1779965852/MClogo-c823e495c5cf455c89ddfb0e17fc7978_urh23c.jpg" },
+      { name: "Digital Africa",src: "https://res.cloudinary.com/dc6iwekzx/image/upload/v1779965852/cropped-cropped-DA_Logo_HG-1_lts2nq.png" },
+    ],
   },
   {
     category: "Innovation Partners",
-    logos: ["KLab", "BK TechHouse", "FabLab", "Norrsken"],
+    logos: [
+      { name: "KLab",        src: "https://res.cloudinary.com/dc6iwekzx/image/upload/v1779965851/logo_1_yyxnzy.png" },
+      { name: "BK TechHouse",src: "https://res.cloudinary.com/dc6iwekzx/image/upload/v1779965852/bk_techouse_logo_ktmxg4.jpg" },
+      { name: "FabLab",      src: "https://res.cloudinary.com/dc6iwekzx/image/upload/v1779965851/Fab_Lab_logo.svg__tw2kbx.png" },
+      { name: "Norrsken",    src: "https://res.cloudinary.com/dc6iwekzx/image/upload/v1779965853/norrsken-foundation-521688_jefdl5.png", imgClass: "max-h-20" },
+    ],
   },
   {
     category: "Media Partners",
-    logos: ["KT Radio", "The New Times", "RBA", "IGIHE"],
+    logos: [
+      { name: "KT Radio",      src: "https://res.cloudinary.com/dc6iwekzx/image/upload/v1779965852/KT-Radio-logo-black-1_xgyjuc.png" },
+      { name: "The New Times", src: "https://res.cloudinary.com/dc6iwekzx/image/upload/v1779965852/logo_dwdsqy.webp" },
+      { name: "RBA",           src: "https://res.cloudinary.com/dc6iwekzx/image/upload/v1779965853/rba_logo_oubv4w.jpg", imgClass: "max-h-20" },
+      { name: "IGIHE",         src: "https://res.cloudinary.com/dc6iwekzx/image/upload/v1779965851/IGIHE-copy-720x405_gjsisv.webp" },
+    ],
   },
 ];
 
@@ -111,12 +131,9 @@ const PartnersPage = () => {
           </p>
 
           <div className="flex flex-wrap gap-3 mt-9">
-            <button className="bg-yellow-400 text-black font-bold px-7 py-3 rounded-lg hover:bg-yellow-300 transition duration-200 text-sm">
+            <Link to="/contact" className="inline-flex items-center justify-center bg-yellow-400 text-black font-bold px-7 py-3 rounded-lg hover:bg-yellow-300 transition duration-200 text-sm">
               Become a Partner
-            </button>
-            <button className="border border-white/15 text-white font-medium px-7 py-3 rounded-lg hover:border-white/30 transition duration-200 text-sm">
-              Download Partnership Deck
-            </button>
+            </Link>
           </div>
         </div>
       </section>
@@ -192,9 +209,13 @@ const PartnersPage = () => {
                 {active.logos.map((logo, j) => (
                   <div
                     key={j}
-                    className="bg-[#F9F8F6] rounded-xl flex items-center justify-center py-7 hover:bg-yellow-50 transition duration-200 border border-transparent hover:border-yellow-400/20"
+                    className="bg-[#F9F8F6] rounded-xl flex items-center justify-center p-5 hover:bg-yellow-50 transition duration-200 border border-transparent hover:border-yellow-400/20 min-h-[96px]"
                   >
-                    <p className="text-sm font-bold text-gray-600 text-center px-2">{logo}</p>
+                    <img
+                      src={logo.src}
+                      alt={logo.name}
+                      className={`w-auto max-w-full object-contain ${logo.imgClass ?? "max-h-12"}`}
+                    />
                   </div>
                 ))}
               </div>
@@ -337,9 +358,9 @@ const PartnersPage = () => {
           </p>
 
           <div className="flex flex-wrap justify-center gap-3 mt-9">
-            <button className="bg-yellow-400 text-black font-bold px-7 py-3 rounded-lg hover:bg-yellow-300 transition duration-200 text-sm">
+            <Link to="/contact" className="inline-flex items-center justify-center bg-yellow-400 text-black font-bold px-7 py-3 rounded-lg hover:bg-yellow-300 transition duration-200 text-sm">
               Become a Partner
-            </button>
+            </Link>
             <Link
               to="/contact"
               className="inline-flex items-center justify-center border border-white/15 text-white font-medium px-7 py-3 rounded-lg hover:border-white/30 transition duration-200 text-sm"
