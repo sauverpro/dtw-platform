@@ -34,9 +34,9 @@ const Footer = () => {
   ];
 
   const socials: { href: string; label: string; Icon: typeof SocialIconX }[] = [
-    { href: "#", label: "X", Icon: SocialIconX },
-    { href: "#", label: "LinkedIn", Icon: SocialIconLinkedIn },
-    { href: "#", label: "Instagram", Icon: SocialIconInstagram },
+    { href: "https://x.com/rwictchamber", label: "X", Icon: SocialIconX },
+    { href: "https://www.linkedin.com/company/rwanda-ict-chamber", label: "LinkedIn", Icon: SocialIconLinkedIn },
+    { href: "https://www.instagram.com/rwictchamber250/", label: "Instagram", Icon: SocialIconInstagram },
   ];
 
   return (
@@ -73,6 +73,8 @@ const Footer = () => {
                 <a
                   key={label}
                   href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   aria-label={label}
                   className="w-8 h-8 rounded-lg border border-white/8 flex items-center justify-center text-gray-500 hover:border-yellow-400/50 hover:text-yellow-400 transition duration-200"
                 >
@@ -134,11 +136,6 @@ const Footer = () => {
         {/* BOTTOM BAR */}
         <div className="border-t border-white/[0.04] mt-14 pt-6 flex flex-col md:flex-row items-center justify-between gap-3 text-gray-400 text-xs">
           <p>© 2026 Digital Transformation Week. Organized by ICT Chamber, MINICT & RISA.</p>
-          <div className="flex gap-5">
-            <a className="hover:text-gray-400 cursor-pointer transition">Privacy Policy</a>
-            <a className="hover:text-gray-400 cursor-pointer transition">Terms of Service</a>
-            <a className="hover:text-gray-400 cursor-pointer transition">Cookie Policy</a>
-          </div>
         </div>
 
       </div>
