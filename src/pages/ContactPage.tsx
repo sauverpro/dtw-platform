@@ -289,23 +289,23 @@ export default function ContactPage() {
             <div className="bg-[#111] border border-white/[0.07] rounded-2xl overflow-hidden">
               <div className="relative">
                 <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3987.4953!2d30.0619!3d-1.9441!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x19dca6f6a8f4f0e5%3A0x1f1b2b2b2b2b2b2b!2sKigali%20Convention%20Centre!5e0!3m2!1sen!2srw!4v1620000000000!5m2!1sen!2srw"
+                  src="https://www.google.com/maps?q=Rwanda+ICT+Chamber,+Kigali,+Rwanda&output=embed"
                   width="100%"
                   height="220"
                   style={{ border: 0, filter: "invert(90%) hue-rotate(180deg)" }}
                   allowFullScreen
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
-                  title="Kigali Convention Centre"
+                  title="Rwanda ICT Chamber"
                 />
               </div>
               <div className="px-6 py-4 flex items-center justify-between">
                 <div>
-                  <p className="text-white text-sm font-semibold">Kigali Convention Centre</p>
-                  <p className="text-gray-500 text-xs mt-0.5">KG 2 Roundabout, Kigali</p>
+                  <p className="text-white text-sm font-semibold">Rwanda ICT Chamber</p>
+                  <p className="text-gray-500 text-xs mt-0.5">Kigali, Rwanda</p>
                 </div>
                 <a
-                  href="https://maps.google.com/?q=Kigali+Convention+Centre"
+                  href="https://maps.google.com/?q=Rwanda+ICT+Chamber,+Kigali,+Rwanda"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-[11px] font-semibold text-yellow-400 border border-yellow-400/25 px-3 py-1.5 rounded-lg hover:bg-yellow-400/10 transition"
