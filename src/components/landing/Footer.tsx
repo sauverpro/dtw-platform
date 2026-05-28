@@ -54,16 +54,16 @@ const Footer = () => {
                 className="h-12 md:h-14 w-auto max-w-[min(100%,280px)]"
               />
             </Link>
-            <p className="text-gray-500 text-sm mt-5 leading-relaxed max-w-xs">
+            <p className="text-gray-300 text-sm mt-5 leading-relaxed max-w-xs">
               Africa's leading technology and innovation conference — connecting startups,
               leaders, and investors to shape the continent's digital future.
             </p>
 
-            <div className="flex items-center gap-2 mt-5 text-gray-500 text-xs">
+            <div className="flex items-center gap-2 mt-5 text-gray-300 text-xs">
               <MapPin size={12} className="text-yellow-400 shrink-0" />
               Kigali Convention Centre, Rwanda
             </div>
-            <div className="flex items-center gap-2 mt-2 text-gray-500 text-xs">
+            <div className="flex items-center gap-2 mt-2 text-gray-300 text-xs">
               <Mail size={12} className="text-yellow-400 shrink-0" />
               dtw@ictchamber.rw
             </div>
@@ -88,7 +88,7 @@ const Footer = () => {
             <ul className="space-y-3">
               {quickLinks.map(({ label, to }) => {
                 const cls =
-                  "text-gray-500 text-sm hover:text-yellow-400 cursor-pointer transition duration-200 flex items-center gap-1.5 group";
+                  "text-gray-300 text-sm hover:text-yellow-400 cursor-pointer transition duration-200 flex items-center gap-1.5 group";
                 const inner = (
                   <>
                     <span className="opacity-0 group-hover:opacity-100 -translate-x-1 group-hover:translate-x-0 transition-all duration-200">
@@ -118,21 +118,21 @@ const Footer = () => {
                 "7 Dec — Province Engagements Begin",
                 "11 Dec — Digital Business Summit",
               ].map((d) => (
-                <p key={d} className="text-gray-500 text-sm">{d}</p>
+                <p key={d} className="text-gray-300 text-sm">{d}</p>
               ))}
             </div>
 
             <div className="mt-7 bg-yellow-400/8 border border-yellow-400/15 rounded-lg px-4 py-3.5">
               <p className="text-yellow-400 text-[10px] font-bold uppercase tracking-wider mb-1">Location</p>
               <p className="text-white text-sm font-semibold">Kigali, Rwanda</p>
-              <p className="text-gray-500 text-xs mt-0.5">December 2026</p>
+              <p className="text-gray-300 text-xs mt-0.5">December 2026</p>
             </div>
           </div>
 
         </div>
 
         {/* BOTTOM BAR */}
-        <div className="border-t border-white/[0.04] mt-14 pt-6 flex flex-col md:flex-row items-center justify-between gap-3 text-gray-600 text-xs">
+        <div className="border-t border-white/[0.04] mt-14 pt-6 flex flex-col md:flex-row items-center justify-between gap-3 text-gray-400 text-xs">
           <p>© 2026 Digital Transformation Week. Organized by ICT Chamber, MINICT & RISA.</p>
           <div className="flex gap-5">
             <a className="hover:text-gray-400 cursor-pointer transition">Privacy Policy</a>

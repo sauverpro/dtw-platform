@@ -294,7 +294,7 @@ export default function ScheduleSpeakers() {
                   <div className="h-px w-6 bg-yellow-400" />
                   <p className="text-white/70 text-[11px] font-bold tracking-[0.2em] uppercase">Programme</p>
                 </div>
-                <span className="text-white/60 text-[11px]">{day.schedule.length} sessions · {day.date}</span>
+                <span className="text-white/75 text-[11px]">{day.schedule.length} sessions · {day.date}</span>
               </div>
 
               {/* rows */}
@@ -306,20 +306,20 @@ export default function ScheduleSpeakers() {
                       className="group grid grid-cols-[100px_1fr] sm:grid-cols-[130px_1fr] gap-4 items-start px-6 py-4 hover:bg-white/[0.025] transition duration-150"
                     >
                       {/* time */}
-                      <p className="text-white/65 text-[11px] tabular-nums leading-snug pt-0.5">{item.time}</p>
+                      <p className="text-white/80 text-[11px] tabular-nums leading-snug pt-0.5">{item.time}</p>
 
                       {/* title */}
                       <div>
-                        <p className="text-white/70 text-sm font-semibold group-hover:text-white transition duration-150 leading-snug">
+                        <p className="text-white text-sm font-semibold group-hover:text-yellow-300 transition duration-150 leading-snug">
                           {item.title}
                         </p>
                         {(item as any).speaker && (
-                          <p className="text-white/65 text-[11px] mt-1">
+                          <p className="text-white/75 text-[11px] mt-1">
                             <span className="mr-1 text-white/50">↳</span>{(item as any).speaker}
                           </p>
                         )}
                         {(item as any).desc && (
-                          <p className="text-white/60 text-[11px] mt-1 leading-relaxed">{(item as any).desc}</p>
+                          <p className="text-white/75 text-[11px] mt-1 leading-relaxed">{(item as any).desc}</p>
                         )}
                       </div>
 
@@ -441,7 +441,7 @@ export default function ScheduleSpeakers() {
           <div className="mt-6 grid sm:grid-cols-2 gap-4">
             <div className="relative rounded-xl overflow-hidden h-40 border border-white/[0.12]">
               <img
-                src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?q=80&w=800&auto=format&fit=crop"
+                src="https://res.cloudinary.com/dc6iwekzx/image/upload/v1779717447/55044284276_4b82cb6800_k_sc3bbu.jpg"
                 className="w-full h-full object-cover brightness-50"
                 alt="Main stage"
               />
@@ -453,7 +453,7 @@ export default function ScheduleSpeakers() {
             </div>
             <div className="relative rounded-xl overflow-hidden h-40 border border-white/[0.12] flex items-center justify-center bg-[#0B0B0B]">
               <img
-                src="https://images.unsplash.com/photo-1511578314322-379afb476865?q=80&w=800&auto=format&fit=crop"
+                src="https://res.cloudinary.com/dc6iwekzx/image/upload/v1779717148/55044486539_64297e5044_k_sup55h.jpg"
                 className="absolute inset-0 w-full h-full object-cover brightness-25"
                 alt="Demo zone"
               />

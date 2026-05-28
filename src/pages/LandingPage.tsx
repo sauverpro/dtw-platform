@@ -3,7 +3,6 @@ import UpcomingEvents from "../components/landing/Event"
 import Footer from "../components/landing/Footer"
 import AboutEvent from "../components/landing/AboutEvent"
 import DTW2026Section from "../components/landing/DTW2026Section"
-import TicketsPartners from "../components/landing/TicketsPartners"
 import Navbar from "../components/landing/Navbar"
 import Faq from "../components/landing/Faq"
 import ScheduleSpeakers from "../components/landing/Schedulespeakers"
@@ -16,7 +15,6 @@ const LandingPage = () => {
           <AboutEvent />
           <DTW2026Section />
 
-      <TicketsPartners />
         <ScheduleSpeakers />
       <Faq />
         <Footer />
