@@ -110,7 +110,7 @@ export default function ContactPage() {
                 <br />
                 <span className="text-yellow-400">DTW 2026</span>
               </h1>
-              <p className="text-gray-500 text-base mt-6 leading-relaxed max-w-md">
+              <p className="text-gray-300 text-base mt-6 leading-relaxed max-w-md">
                 Whether you're interested in partnering, speaking, attending, or just want to learn more — our team is ready to help.
               </p>
             </div>
@@ -127,7 +127,7 @@ export default function ContactPage() {
                   </div>
                   <p className="text-white/30 text-[10px] font-semibold tracking-[0.15em] uppercase mb-1">{label}</p>
                   <p className="text-white text-sm font-semibold">{value}</p>
-                  <p className="text-gray-600 text-xs mt-0.5">{sub}</p>
+                  <p className="text-gray-400 text-xs mt-0.5">{sub}</p>
                 </div>
               ))}
             </div>

@@ -195,7 +195,6 @@ export default function RegisterPage() {
                     <div className="space-y-3">
                       {REGISTRATION_EVENTS.map((ev) => {
                         const checked = form.events.includes(ev.id);
-                        const isHighlight = "highlight" in ev && ev.highlight;
                         return (
                           <label
                             key={ev.id}

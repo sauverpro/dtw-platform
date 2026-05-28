@@ -123,7 +123,7 @@ const DBSPage = () => {
                     <h3 className="text-white text-lg font-bold leading-snug">
                       {award.title}
                     </h3>
-                    <p className="text-gray-500 text-sm mt-3 leading-relaxed">
+                    <p className="text-gray-300 text-sm mt-3 leading-relaxed">
                       {award.description}
                     </p>
                   </div>

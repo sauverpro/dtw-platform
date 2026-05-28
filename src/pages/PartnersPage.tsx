@@ -263,7 +263,7 @@ const PartnersPage = () => {
                   {b.icon}
                 </span>
                 <h3 className="text-white text-base font-bold">{b.title}</h3>
-                <p className="text-gray-500 text-sm mt-3 leading-relaxed">{b.description}</p>
+                <p className="text-gray-300 text-sm mt-3 leading-relaxed">{b.description}</p>
               </div>
             ))}
           </div>
