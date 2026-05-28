@@ -1,4 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
+import { Link } from "react-router-dom";
+
 
 // DTW 2026 opens 7 December 2026, 08:00 CAT (UTC+2)
 const DTW_TARGET = new Date("2026-12-07T08:00:00+02:00");
@@ -107,12 +109,12 @@ const Hero = () => {
               </p>
 
               <div className="flex items-center gap-3">
-                <button className="px-6 py-3 rounded-lg bg-yellow-400 text-black font-bold text-sm hover:bg-yellow-300 transition-all duration-200">
+                <Link
+                  to="/register"
+                  className="px-6 py-3 rounded-lg bg-yellow-400 text-black font-bold text-sm hover:bg-yellow-300 transition-all duration-200"
+                >
                   Get your Seats
-                </button>
-                <button className="px-6 py-3 rounded-lg border border-white/20 text-white font-medium text-sm hover:border-white/40 transition-all duration-200">
-                  Learn More
-                </button>
+                </Link>
               </div>
             </div>
 
