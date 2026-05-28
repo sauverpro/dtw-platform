@@ -30,11 +30,10 @@ type EventCardProps = {
   date: string;
   location: string;
   floor: string;
-  slotsLeft: number;
 };
 
 // ─── EventCard (inline) ──────────────────────────────────
-function EventCard({ title, image, date, location, floor, slotsLeft }: EventCardProps) {
+function EventCard({ title, image, date, location, floor }: EventCardProps) {
   return (
     <div className="group bg-[#0F0F0F] border border-white/[0.07] rounded-[20px] overflow-hidden transition-all duration-500 ease-[cubic-bezier(.16,1,.3,1)] hover:-translate-y-2 hover:border-yellow-400/25 cursor-pointer">
 
@@ -44,9 +43,6 @@ function EventCard({ title, image, date, location, floor, slotsLeft }: EventCard
           alt={title}
           className="w-full h-full object-cover transition-transform duration-700 ease-[cubic-bezier(.16,1,.3,1)] group-hover:scale-105"
         />
-        <div className="absolute top-3.5 left-3.5 bg-yellow-400 text-black text-[10px] font-semibold tracking-widest uppercase px-3 py-1.5 rounded-full">
-          {slotsLeft} slots left
-        </div>
       </div>
 
       <div className="p-5">
@@ -79,7 +75,6 @@ const events: EventCardProps[] = [
     date: "June 10 · 09:00 AM",
     location: "Marriott Hotel, Kigali",
     floor: "Level 3 · 3rd Floor",
-    slotsLeft: 30,
   },
   {
     title: "Startup Summit",
@@ -87,7 +82,6 @@ const events: EventCardProps[] = [
     date: "June 11 · 10:00 AM",
     location: "Marriott Hotel, Kigali",
     floor: "Level 2 · Main Hall",
-    slotsLeft: 12,
   },
   {
     title: "Investor Day",
@@ -95,7 +89,6 @@ const events: EventCardProps[] = [
     date: "June 12 · 08:30 AM",
     location: "Marriott Hotel, Kigali",
     floor: "Level 4 · Boardroom",
-    slotsLeft: 50,
   },
   {
     title: "Women in Tech",
@@ -103,7 +96,6 @@ const events: EventCardProps[] = [
     date: "June 13 · 11:00 AM",
     location: "Marriott Hotel, Kigali",
     floor: "Level 1 · Garden Hall",
-    slotsLeft: 8,
   },
 ];
 
