@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
+import { Link } from "react-router-dom";
 import img1 from '../../assets/img1.jpg';
 import img6 from '../../assets/img 6.jpg';
 import img10 from '../../assets/img10.jpg';
@@ -110,12 +111,12 @@ const Hero = () => {
               </p>
 
               <div className="flex items-center gap-3">
-                <button className="px-6 py-3 rounded-lg bg-yellow-400 text-black font-bold text-sm hover:bg-yellow-300 transition-all duration-200">
+                <Link
+                  to="/register"
+                  className="px-6 py-3 rounded-lg bg-yellow-400 text-black font-bold text-sm hover:bg-yellow-300 transition-all duration-200"
+                >
                   Get your Seats
-                </button>
-                <button className="px-6 py-3 rounded-lg border border-white/20 text-white font-medium text-sm hover:border-white/40 transition-all duration-200">
-                  Learn More
-                </button>
+                </Link>
               </div>
             </div>
 
