@@ -21,6 +21,14 @@ export const HeroSchema = z.object({
 export const PartnerSchema = z.object({
   id: z.string(),
   name: z.string().min(1),
+  /** HTTPS/CDN (Cloudinary) URL. Empty = show name text. Data URLs are rejected. */
+  logoUrl: z
+    .string()
+    .optional()
+    .default('')
+    .refine((v) => !String(v).startsWith('data:'), {
+      message: 'Logo must be a Cloudinary/CDN URL, not a local data upload',
+    }),
 });
 
 export const AboutDateSchema = z.object({

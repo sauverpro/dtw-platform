@@ -19,33 +19,24 @@ function slotsFromLegacy(pkg) {
   return m ? Math.max(0, parseInt(m[1], 10)) : 0;
 }
 
+/**
+ * Stored packages are authoritative. Previously we re-injected every default
+ * whose id was missing from storage, which made "delete package" in the admin
+ * appear to fail after save/reload.
+ */
 function mergePackages(storedList, defs) {
   if (!Array.isArray(storedList)) return defs;
-  const storedById = new Map(storedList.map((p) => [p.id, p]));
-  const merged = defs.map((def) => {
-    const s = storedById.get(def.id);
-    if (!s) return def;
-    const { tier: _drop, ...rest } = s;
-    return {
-      ...def,
-      ...rest,
-      slots: slotsFromLegacy(s),
-      benefits: Array.isArray(rest.benefits) ? rest.benefits : def.benefits,
-    };
-  });
-
-  const defIds = new Set(defs.map((d) => d.id));
-  for (const p of storedList) {
-    if (defIds.has(p.id)) continue;
+  const defsById = new Map(defs.map((d) => [d.id, d]));
+  return storedList.map((p) => {
+    const def = defsById.get(p.id);
     const { tier: _drop, ...rest } = p;
-    merged.push({
+    return {
+      ...(def || {}),
       ...rest,
       slots: slotsFromLegacy(p),
-      benefits: Array.isArray(rest.benefits) ? rest.benefits : [],
-    });
-  }
-
-  return merged;
+      benefits: Array.isArray(rest.benefits) ? rest.benefits : (def?.benefits ?? []),
+    };
+  });
 }
 
 function resolveSiteImageUrl(raw) {
@@ -76,8 +67,17 @@ function mergeStoredWithDefaults(parsed) {
     cta: { ...defaultData.cta, ...parsed.cta },
     footer: { ...defaultData.footer, ...parsed.footer },
     packages: mergePackages(parsed.packages, defaultData.packages),
-    partners: Array.isArray(parsed.partners) ? parsed.partners : defaultData.partners,
+    partners: normalizePartners(parsed.partners),
   };
+}
+
+function normalizePartners(list) {
+  if (!Array.isArray(list)) return defaultData.partners;
+  return list.map((p) => ({
+    id: String(p?.id ?? Date.now()),
+    name: String(p?.name ?? '').trim() || 'Partner',
+    logoUrl: typeof p?.logoUrl === 'string' ? p.logoUrl : '',
+  }));
 }
 
 function normalizeSiteData(raw) {

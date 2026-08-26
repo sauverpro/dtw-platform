@@ -13,7 +13,11 @@ export const HeroSchema = z.object({
   stats: z.array(HeroStatSchema)
 });
 
-export const PartnerSchema = z.object({ id: z.string(), name: z.string().min(1) });
+export const PartnerSchema = z.object({
+  id: z.string(),
+  name: z.string().min(1),
+  logoUrl: z.string().optional().default(""),
+});
 const AboutDateSchema = z.object({ value: z.string().min(1), label: z.string().min(1) });
 export const AboutSchema = z.object({
   eventDate: z.string(),
@@ -126,11 +130,25 @@ function sanitizeFooterValue(raw: unknown) {
 function sanitizePartnersValue(raw: unknown) {
   const value = Array.isArray(raw) ? raw : [];
   return value
+    .map((partner) => {
+      const row = partner as Record<string, unknown>;
+      const logoUrl = String(row?.logoUrl ?? "").trim();
+      // Data URLs are too large for the DB JSON column — logos must be Cloudinary/CDN URLs.
+      if (logoUrl.startsWith("data:")) {
+        return null;
+      }
+      return {
+        id: String(row?.id ?? Date.now()),
+        name: String(row?.name ?? "").trim(),
+        logoUrl,
+      };
+    })
+    .filter((partner): partner is { id: string; name: string; logoUrl: string } => partner !== null)
+    .filter((partner) => partner.name.length > 0 || partner.logoUrl.length > 0)
     .map((partner) => ({
-      id: String((partner as Record<string, unknown>)?.id ?? Date.now()),
-      name: String((partner as Record<string, unknown>)?.name ?? "").trim(),
-    }))
-    .filter((partner) => partner.name.length > 0);
+      ...partner,
+      name: partner.name || "Partner",
+    }));
 }
 
 function sanitizePackagesValue(raw: unknown) {

@@ -7,6 +7,7 @@ import { checkDatabaseHealth } from "./db/prisma";
 import { authRoutes } from "./routes/authRoutes";
 import { packageInquiryRoutes } from "./routes/packageInquiryRoutes";
 import { siteContentRoutes } from "./routes/siteContentRoutes";
+import { uploadRoutes } from "./routes/uploadRoutes";
 import { errorHandler, notFound } from "./middleware/errors";
 
 export function createApp() {
@@ -47,6 +48,7 @@ export function createApp() {
   app.use("/api/auth", authRoutes);
   app.use("/api/package-inquiries", packageInquiryRoutes);
   app.use("/api/site-content", siteContentRoutes);
+  app.use("/api/uploads", uploadRoutes);
 
   app.use(notFound);
   app.use(errorHandler);

@@ -36,12 +36,12 @@ const awards = [
 ];
 
 const galleryImages = [
-  "https://res.cloudinary.com/dc6iwekzx/image/upload/v1779717149/55043000557_412da44f53_k_inohrc.jpg",
-  "https://res.cloudinary.com/dc6iwekzx/image/upload/v1779717148/55044487539_790c230537_k_i7eo4g.jpg",
-  "https://res.cloudinary.com/dc6iwekzx/image/upload/v1779717148/55044486539_64297e5044_k_sup55h.jpg",
-  "https://res.cloudinary.com/dc6iwekzx/image/upload/v1779717147/55043328857_30a8ad6d2a_k_bq03ve.jpg",
-  "https://res.cloudinary.com/dc6iwekzx/image/upload/v1779717149/55044201958_216abbb997_k_movii7.jpg",
-  "https://res.cloudinary.com/dc6iwekzx/image/upload/v1779717282/55044486174_3c71550902_k_rthsrf.jpg",
+  "https://res.cloudinary.com//image/upload/v1779717149/55043000557_412da44f53_k_inohrc.jpg",
+  "https://res.cloudinary.com//image/upload/v1779717148/55044487539_790c230537_k_i7eo4g.jpg",
+  "https://res.cloudinary.com//image/upload/v1779717148/55044486539_64297e5044_k_sup55h.jpg",
+  "https://res.cloudinary.com//image/upload/v1779717147/55043328857_30a8ad6d2a_k_bq03ve.jpg",
+  "https://res.cloudinary.com//image/upload/v1779717149/55044201958_216abbb997_k_movii7.jpg",
+  "https://res.cloudinary.com//image/upload/v1779717282/55044486174_3c71550902_k_rthsrf.jpg",
 ];
 
 const DBSPage = () => {
@@ -52,7 +52,7 @@ const DBSPage = () => {
       {/* ── HERO ─────────────────────────────────────────── */}
       <section className="relative min-h-screen flex items-end px-6 pb-20 pt-40">
         <img
-          src="https://res.cloudinary.com/dc6iwekzx/image/upload/v1779716251/55044404763_72af21a20d_o_phggqd.jpg"
+          src="https://res.cloudinary.com//image/upload/v1779716251/55044404763_72af21a20d_o_phggqd.jpg"
           alt="DBS Hero"
           className="absolute inset-0 w-full h-full object-cover"
         />
@@ -183,7 +183,7 @@ const DBSPage = () => {
           {/* RIGHT */}
           <div className="relative">
             <img
-              src="https://res.cloudinary.com/dc6iwekzx/image/upload/v1779716263/55044242463_b7cb6cde6f_o_ewimr7.jpg"
+              src="https://res.cloudinary.com//image/upload/v1779716263/55044242463_b7cb6cde6f_o_ewimr7.jpg"
               alt="DBS Event"
               className="rounded-2xl h-[520px] w-full object-cover"
             />
@@ -231,7 +231,7 @@ const DBSPage = () => {
       {/* ── DBI TRUST SEAL CTA ────────────────────────────── */}
       <section className="relative py-32 px-6 overflow-hidden">
         <img
-          src="https://res.cloudinary.com/dc6iwekzx/image/upload/v1779716264/55044332450_e82cfa26fd_o_tvxql1.jpg"
+          src="https://res.cloudinary.com//image/upload/v1779716264/55044332450_e82cfa26fd_o_tvxql1.jpg"
           alt="DBI Trust Seal"
           className="absolute inset-0 w-full h-full object-cover"
         />

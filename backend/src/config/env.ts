@@ -21,6 +21,10 @@ const envSchema = z.object({
   SENDGRID_API_KEY: z.preprocess(emptyToUndefined, z.string().min(1).optional()),
   SENDGRID_FROM_EMAIL: z.preprocess(emptyToUndefined, z.string().email().optional()),
   SPONSORSHIP_INBOX: z.string().email().default("dtw@ictchamber.rw"),
+  CLOUDINARY_CLOUD_NAME: z.preprocess(emptyToUndefined, z.string().min(1).optional()),
+  CLOUDINARY_API_KEY: z.preprocess(emptyToUndefined, z.string().min(1).optional()),
+  CLOUDINARY_API_SECRET: z.preprocess(emptyToUndefined, z.string().min(1).optional()),
+  CLOUDINARY_FOLDER: z.preprocess(emptyToUndefined, z.string().min(1).optional()),
 });
 
 const parsedEnv = envSchema.parse(process.env);

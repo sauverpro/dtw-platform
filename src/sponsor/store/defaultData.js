@@ -18,12 +18,12 @@ export const defaultData = {
     ],
   },
   partners: [
-    { id: '1', name: 'ICT Chamber Rwanda' },
-    { id: '2', name: 'MINICT' },
-    { id: '3', name: 'RISA' },
-    { id: '4', name: 'Rwanda PSF' },
-    { id: '5', name: 'Smart Rwanda' },
-    { id: '6', name: 'Ministry of ICT' },
+    { id: '1', name: 'ICT Chamber Rwanda', logoUrl: '' },
+    { id: '2', name: 'MINICT', logoUrl: '' },
+    { id: '3', name: 'RISA', logoUrl: '' },
+    { id: '4', name: 'Rwanda PSF', logoUrl: '' },
+    { id: '5', name: 'Smart Rwanda', logoUrl: '' },
+    { id: '6', name: 'Ministry of ICT', logoUrl: '' },
   ],
   about: {
     eventDate: 'Oct 2026',

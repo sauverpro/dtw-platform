@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { CheckIcon, ChevronDownIcon, PlusIcon, XMarkIcon } from '@heroicons/react/24/outline';
 import { emitAdminNotice } from '../../utils/adminNotice';
 
-/** ~2.5 MB — uploads store as data URLs until Cloudinary. */
+/** ~2.5 MB max for image uploads (Cloudinary or local data URL fallback). */
 const IMAGE_UPLOAD_BYTES_MAX = 2_500_000;
 
 export function AdminHeader({ title, subtitle, onSave, saved }) {
@@ -136,20 +136,24 @@ const inputStyle = {
   outline: 'none', transition: 'border .2s',
 };
 
-/** Image URL, path, data URL — URL field + upload (base64 until Cloudinary). */
+/** Image URL / path / Cloudinary upload. Pass onUploadFile to store on Cloudinary instead of a data URL. */
 export function ImageSourceField({
   label,
   hint,
   value,
   onChange,
   error,
+  onUploadFile,
+  clearLabel = 'Clear',
 }) {
   const fileRef = useRef(null);
+  const [uploading, setUploading] = useState(false);
   const stored = typeof value === 'string' ? value : '';
   const isDataUrl = stored.startsWith('data:image/');
 
-  const pickFile = (e) => {
+  const pickFile = async (e) => {
     const file = e.target.files?.[0];
+    e.target.value = '';
     if (!file) return;
     if (!file.type.startsWith('image/')) {
       emitAdminNotice('Choose an image file (PNG, JPG, WebP, etc.).');
@@ -159,29 +163,43 @@ export function ImageSourceField({
       emitAdminNotice(`That file is about ${Math.round(file.size / 1024)} KB. Use under ~${Math.round(IMAGE_UPLOAD_BYTES_MAX / 1024)} KB, or paste a hosted image URL.`);
       return;
     }
+
+    if (typeof onUploadFile === 'function') {
+      setUploading(true);
+      try {
+        const url = await onUploadFile(file);
+        if (typeof url === 'string' && url.trim()) onChange(url.trim());
+      } catch (err) {
+        emitAdminNotice(err?.payload?.message || err?.message || 'Image upload failed.');
+      } finally {
+        setUploading(false);
+      }
+      return;
+    }
+
     const rd = new FileReader();
     rd.onload = () => {
       if (typeof rd.result === 'string') onChange(rd.result);
     };
     rd.readAsDataURL(file);
-    e.target.value = '';
   };
 
   return (
     <Field label={label} hint={hint}>
-      {stored ? (
-        <div style={{ marginBottom: '10px', borderRadius: '4px', overflow: 'hidden', border: '1px solid rgba(255,255,255,0.12)', maxWidth: 'min(280px, 100%)', background: 'rgba(0,0,0,0.2)' }}>
-          <img src={stored} alt="" style={{ display: 'block', width: '100%', height: 'auto', maxHeight: '140px', objectFit: 'cover' }} />
+      {stored && !isDataUrl ? (
+        <div style={{ marginBottom: '10px', borderRadius: '4px', overflow: 'hidden', border: '1px solid rgba(255,255,255,0.12)', maxWidth: 'min(280px, 100%)', background: '#fff', padding: '10px', display: 'inline-flex' }}>
+          <img src={stored} alt="" style={{ display: 'block', maxWidth: '100%', height: 'auto', maxHeight: '80px', objectFit: 'contain' }} />
         </div>
       ) : null}
       <Input
         value={isDataUrl ? '' : stored}
         onChange={onChange}
-        placeholder={isDataUrl ? '(Uploaded — type a URL to replace, or upload another file)' : 'https://… or /my-image.jpg'}
+        placeholder={uploading ? 'Uploading…' : (isDataUrl ? '(Local upload — re-upload to Cloudinary)' : 'https://… or upload')}
+        disabled={uploading}
       />
       <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px', marginTop: '10px', alignItems: 'center' }}>
         <input ref={fileRef} type="file" accept="image/*" style={{ display: 'none' }} onChange={pickFile} />
-        <button type="button" onClick={() => fileRef.current?.click()} style={{
+        <button type="button" disabled={uploading} onClick={() => fileRef.current?.click()} style={{
           background: 'rgba(255,255,255,0.06)',
           border: '1px solid rgba(255,255,255,0.14)',
           color: '#f0eeea',
@@ -191,10 +209,11 @@ export function ImageSourceField({
           fontWeight: 700,
           letterSpacing: '0.06em',
           textTransform: 'uppercase',
-          cursor: 'pointer',
+          cursor: uploading ? 'wait' : 'pointer',
+          opacity: uploading ? 0.6 : 1,
         }}
-        >Upload image</button>
-        <button type="button" onClick={() => onChange('')} style={{
+        >{uploading ? 'Uploading…' : (onUploadFile ? 'Upload to Cloudinary' : 'Upload image')}</button>
+        <button type="button" disabled={uploading} onClick={() => onChange('')} style={{
           background: 'transparent',
           border: '1px dashed rgba(255,255,255,0.2)',
           color: 'rgba(240,238,234,0.55)',
@@ -203,10 +222,10 @@ export function ImageSourceField({
           fontSize: '11px',
           cursor: 'pointer',
         }}
-        >Use site default</button>
+        >{clearLabel}</button>
         {isDataUrl ? (
-          <span style={{ fontSize: '10px', color: 'rgba(240,238,234,0.42)', flex: '1 1 100%' }}>
-            Stored with your site data in the browser. For production, plan to switch this field to a Cloudinary (or CDN) URL after upload.
+          <span style={{ fontSize: '10px', color: '#f87171', flex: '1 1 100%' }}>
+            This is a local data URL and will not be saved to the database. Re-upload so it goes to Cloudinary.
           </span>
         ) : null}
       </div>
