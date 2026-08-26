@@ -3,7 +3,7 @@ import { Menu, X } from "lucide-react";
 import { Link, NavLink } from "react-router-dom";
 import { DTW_LOGO_URL, DTW_LOGO_SCROLLED_URL } from "../../constants/brand";
 
-const SPONSOR_URL = "https://dtw-smoky.vercel.app/";
+const SPONSOR_ROUTE = "/sponsor";
 
 const links = [
   { label: "Home", to: "/" },
@@ -86,14 +86,12 @@ const Navbar = ({ variant = "dark" }: NavbarProps) => {
           >
             Register
           </Link>
-          <a
-            href={SPONSOR_URL}
-            target="_blank"
-            rel="noopener noreferrer"
+          <Link
+            to={SPONSOR_ROUTE}
             className="bg-yellow-400 text-black px-5 py-2.5 rounded-md text-sm font-bold hover:bg-yellow-300 transition duration-300"
           >
             Sponsor Us
-          </a>
+          </Link>
         </div>
 
         {/* MOBILE: Register + Hamburger */}
@@ -140,15 +138,13 @@ const Navbar = ({ variant = "dark" }: NavbarProps) => {
             >
               Register →
             </Link>
-            <a
-              href={SPONSOR_URL}
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link
+              to={SPONSOR_ROUTE}
               onClick={() => setMobileOpen(false)}
               className="border border-gray-200 text-gray-800 px-5 py-3 rounded-xl text-sm font-bold w-full text-center hover:border-yellow-400 transition"
             >
               Sponsor Us
-            </a>
+            </Link>
           </div>
         </div>
       )}

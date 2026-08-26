@@ -1,73 +1,107 @@
-# React + TypeScript + Vite
+# Digital Transformation Week — Website
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Single deployable project containing the DTW main website, the DTW 2026
+sponsorship section, and the content API that backs the sponsorship section.
 
-Currently, two official plugins are available:
+## Layout
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
-
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```
+.
+├── index.html              Single SPA entry point
+├── src/                    Main website (TypeScript / TSX)
+│   ├── App.tsx             All routes, including the /sponsor sub-tree
+│   ├── index.css           Tailwind + main site + sponsorship styles
+│   ├── components/         Main site components
+│   ├── pages/              Main site pages
+│   └── sponsor/            Sponsorship section (JavaScript / JSX)
+│       ├── SponsorLayout.tsx   Theme scoping + CMS provider for /sponsor
+│       ├── components/
+│       ├── constants/routes.js Route prefix used by sponsorship links
+│       ├── pages/              Sponsorship landing page
+│       ├── pages/admin/        Sponsorship content admin
+│       └── store/              CMS state, talks to the backend
+└── backend/                Express + Prisma content API (own package.json)
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+The frontend is one Vite app producing one `dist/`. The `backend/` folder is a
+separate Node service with its own dependencies and its own deployment.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## Routes
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+| Route                    | What it serves                                |
+| ------------------------ | --------------------------------------------- |
+| `/`                      | Main website landing page                     |
+| `/register`              | Registration form                             |
+| `/contact`               | Contact page                                  |
+| `/partners`              | Partners page                                 |
+| `/dbs`                   | Digital Business Summit page                   |
+| `/previous-dtws`         | Previous editions                             |
+| `/gallery/:year`         | Event gallery for a given year                |
+| `/sponsor`               | DTW 2026 sponsorship landing page             |
+| `/sponsor/admin`         | Sponsorship content admin (login required)    |
+| `/sponsor/admin/:section`| Edit a sponsorship page section               |
+
+To move the sponsorship section to a different path, change `SPONSOR_BASE` in
+`src/sponsor/constants/routes.js` and the matching `path` in `src/App.tsx`.
+
+## Theming
+
+The main website is light themed; the sponsorship section is dark themed with
+its own document-level styling. `SponsorLayout` puts a `sponsor-page` class on
+`<html>` while a `/sponsor` route is mounted, and every sponsorship rule that
+would otherwise leak site-wide is scoped under `html.sponsor-page` in
+`src/index.css`. Keep new document-level sponsorship styles inside that scope.
+
+## Frontend
+
+```bash
+npm install
+npm run dev        # http://localhost:5173
+npm run build      # tsc -b && vite build  ->  dist/
+npm run lint
+npm run preview
 ```
+
+`src/` is TypeScript and `src/sponsor/` is plain JSX. `allowJs` is enabled in
+`tsconfig.app.json` so the TypeScript entry point can import the JSX modules;
+the JSX is bundled but not type checked.
+
+Copy `.env.example` to `.env` and fill in:
+
+- `VITE_REGISTRATION_SCRIPT_URL` — Google Apps Script endpoint for the main
+  site's registration form. See `docs/GOOGLE_SHEETS_REGISTRATION.md`.
+- `VITE_API_BASE_URL` — content API for the sponsorship section. Defaults to
+  the hosted backend when unset.
+
+Deployment expects an SPA fallback so client-side routes resolve on refresh;
+`vercel.json` provides this on Vercel. On other hosts, rewrite unknown paths to
+`/index.html`.
+
+## Backend
+
+Express + Prisma service providing sponsorship content, admin auth, and package
+inquiries under `/api`. It has its own `package.json`, so install separately:
+
+```bash
+npm run backend:install
+npm run backend:dev      # http://localhost:4000
+npm run backend:build
+npm run backend:start
+```
+
+Or run the equivalent scripts from inside `backend/`. Copy
+`backend/.env.example` to `backend/.env` and set `DATABASE_URL`, `JWT_SECRET`,
+`CORS_ORIGIN`, the admin credentials, and the SendGrid values.
+
+Because the frontend now serves the sponsorship section from the main site's
+origin, `CORS_ORIGIN` must include that origin.
+
+```bash
+cd backend
+npx prisma generate
+npx prisma migrate deploy   # or: npm run prisma:migrate
+npm run seed
+npm test
+```
+
+A `Dockerfile` is included for container deployments.

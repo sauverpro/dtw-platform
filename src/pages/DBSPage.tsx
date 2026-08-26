@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import Navbar from "../components/landing/Navbar";
 import Footer from "../components/landing/Footer";
 
@@ -171,14 +172,12 @@ const DBSPage = () => {
               impactful digital solutions shaping Africa's future.
             </p>
 
-            <a
-              href="https://dtw-smoky.vercel.app/"
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link
+              to="/sponsor"
               className="mt-9 inline-flex items-center justify-center bg-yellow-400 text-black font-bold px-7 py-3 rounded-lg hover:bg-yellow-300 transition duration-200 text-sm"
             >
               Become a Sponsor
-            </a>
+            </Link>
           </div>
 
           {/* RIGHT */}

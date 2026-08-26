@@ -319,14 +319,12 @@ const PartnersPage = () => {
           </div>
 
           <div className="mt-9">
-            <a
-              href="https://dtw-smoky.vercel.app/"
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link
+              to="/sponsor"
               className="inline-flex items-center justify-center bg-yellow-400 text-black font-bold px-7 py-3 rounded-lg hover:bg-yellow-300 transition duration-200 text-sm"
             >
               Sponsor Us
-            </a>
+            </Link>
           </div>
         </div>
       </section>

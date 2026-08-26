@@ -1,0 +1,4 @@
+.env
+node_modules
+dist
+branch_structure.json
