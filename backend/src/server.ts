@@ -1,9 +1,10 @@
+import express from "express";
 import { createApp } from "./createApp";
 import { env } from "./config/env";
 import { prisma } from "./db/prisma";
 import { warnIfCloudinaryMisconfigured } from "./services/cloudinaryService";
 
-const app = createApp();
+const app: express.Express = createApp();
 
 export default app;
 

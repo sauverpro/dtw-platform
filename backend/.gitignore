@@ -1,4 +1,8 @@
 .env
+.env*
+!.env.example
 node_modules
 dist
+.vercel
 branch_structure.json
+
