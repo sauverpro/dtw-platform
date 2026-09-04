@@ -1,0 +1,48 @@
+name: Deploy frontend to FTP
+
+on:
+  push:
+    branches: [main]
+    paths-ignore:
+      - "backend/**"
+      - "docs/**"
+      - "**/*.md"
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-frontend-ftp
+  cancel-in-progress: true
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build
+        run: npm run build
+        env:
+          VITE_API_BASE_URL: https://dtw-platform-api.vercel.app/api
+          VITE_REGISTRATION_SCRIPT_URL: ${{ secrets.VITE_REGISTRATION_SCRIPT_URL }}
+
+      - name: Deploy dist/ via FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          port: 21
+          protocol: ftp
+          local-dir: ./dist/
+          server-dir: /home/ictchamber/dtw.ictchamber.rw/dtwictchamber/
+          dangerous-clean-slate: false

@@ -120,6 +120,28 @@ SPA refreshes are handled by the root `vercel.json` rewrite to `index.html`.
 After the frontend URL is known, add it to the backend `CORS_ORIGIN` and
 redeploy the backend.
 
+## Deploy frontend via FTP (dtw.ictchamber.rw)
+
+Pushes to `main` that touch the frontend run
+[`.github/workflows/deploy-frontend-ftp.yml`](.github/workflows/deploy-frontend-ftp.yml):
+build Vite → upload `dist/` to the hosting FTP account.
+
+Add these **repository secrets** on GitHub (`Settings → Secrets and variables → Actions`):
+
+| Secret | Value |
+| --- | --- |
+| `FTP_SERVER` | `ftp.ictchamber.rw` |
+| `FTP_USERNAME` | FTP username for the subdomain |
+| `FTP_PASSWORD` | FTP password |
+
+The workflow uploads `dist/` to `/home/ictchamber/dtw.ictchamber.rw/dtwictchamber/`.
+
+Optional: `VITE_REGISTRATION_SCRIPT_URL` for the registration form.
+
+You can also run the workflow manually under **Actions → Deploy frontend to FTP → Run workflow**.
+
+Include `https://dtw.ictchamber.rw` in the API project's `CORS_ORIGIN`.
+
 ## Backend
 
 Express + Prisma service providing sponsorship content, admin auth, and package
