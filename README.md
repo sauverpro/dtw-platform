@@ -126,7 +126,8 @@ Pushes to `main` that touch the frontend run
 [`.github/workflows/deploy-frontend-ftp.yml`](.github/workflows/deploy-frontend-ftp.yml):
 build Vite → upload `dist/` to the hosting FTP account.
 
-Add these **repository secrets** on GitHub (`Settings → Secrets and variables → Actions`):
+Add these **environment secrets** on the `Production` environment
+(`Settings → Environments → Production`), or as repository secrets:
 
 | Secret | Value |
 | --- | --- |
@@ -134,9 +135,7 @@ Add these **repository secrets** on GitHub (`Settings → Secrets and variables 
 | `FTP_USERNAME` | FTP username for the subdomain |
 | `FTP_PASSWORD` | FTP password |
 
-The workflow uploads `dist/` to `/home/ictchamber/dtw.ictchamber.rw/dtwictchamber/`.
-
-Optional: `VITE_REGISTRATION_SCRIPT_URL` for the registration form.
+The workflow job uses `environment: Production` so those secrets are available.
 
 You can also run the workflow manually under **Actions → Deploy frontend to FTP → Run workflow**.
 
