@@ -46,7 +46,7 @@ jobs:
           port: 21
           protocol: ftp
           local-dir: ./dist/
-          # FTP user is already chrooted to the subdomain document root.
-          # Absolute cPanel paths nest files under home/... and cause LiteSpeed 404.
-          server-dir: ./
+          # FTP login lands in /home/ictchamber. Subdomain doc root is the child folder.
+          # Uploading to ./ left index.html in the account home → LiteSpeed Host 404.
+          server-dir: ./dtw.ictchamber.rw/
           dangerous-clean-slate: false
